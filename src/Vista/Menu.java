@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.CtrlApplication;
+import Model.Client;
 
 /**
  *
@@ -33,16 +34,52 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bttnAddClient = new javax.swing.JButton();
+        btnAddClient = new javax.swing.JButton();
+        btnRemoveClient = new javax.swing.JButton();
+        btnChange = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstClients = new javax.swing.JList();
+        btnAddApartment = new javax.swing.JButton();
+        btnRemoveAppartment = new javax.swing.JButton();
+        btnChangeAppartment = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bttnAddClient.setText("Add Client");
-        bttnAddClient.addActionListener(new java.awt.event.ActionListener() {
+        btnAddClient.setText("Add Client");
+        btnAddClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnAddClientActionPerformed(evt);
+                btnAddClientActionPerformed(evt);
             }
         });
+
+        btnRemoveClient.setText("Remove Client");
+        btnRemoveClient.setMaximumSize(new java.awt.Dimension(81, 23));
+        btnRemoveClient.setMinimumSize(new java.awt.Dimension(81, 23));
+        btnRemoveClient.setPreferredSize(new java.awt.Dimension(81, 23));
+        btnRemoveClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveClientActionPerformed(evt);
+            }
+        });
+
+        btnChange.setText("Change Client");
+
+        jScrollPane1.setViewportView(lstClients);
+
+        btnAddApartment.setText("Add Appartment");
+        btnAddApartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddApartmentActionPerformed(evt);
+            }
+        });
+
+        btnRemoveAppartment.setText("Remove Appartment");
+
+        btnChangeAppartment.setText("Change Appartment");
+
+        jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,27 +87,89 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(bttnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(772, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemoveClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnChange, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddApartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemoveAppartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnChangeAppartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(bttnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAddApartment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnRemoveAppartment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnChangeAppartment, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnRemoveClient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnChange, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttnAddClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddClientActionPerformed
+    private void btnAddClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClientActionPerformed
         FrmAddClient dialog = new FrmAddClient(this, true);
         dialog.setTitle("Client Data");
         dialog.pack();
         dialog.setVisible(true);
-    }//GEN-LAST:event_bttnAddClientActionPerformed
+        Client client = dialog.getClient();
+        if (client != null){
+            controller.addClient(client);
+            updateClientList();
+        }
+    }//GEN-LAST:event_btnAddClientActionPerformed
 
+    private void btnRemoveClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoveClientActionPerformed
+
+    private void btnAddApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApartmentActionPerformed
+        FrmAddApartment dialog = new FrmAddApartment(this, true);
+        dialog.setTitle("Apartment Data");
+        dialog.pack();
+        dialog.setVisible(true);
+        Apartment apartment = dialog.getApartment();
+        if(apartment != null){
+            controller.addApartment(apartment);
+            updateCatalogue();
+        }
+    }//GEN-LAST:event_btnAddApartmentActionPerformed
+
+    /**
+     * Updates the Client List in the menu.
+     */
+    private void updateClientList() {
+        
+    }
+    
+    /**
+     * Updates the apartment Catalogue in the menu.
+     */
+    private void updateCatalogue() {
+       
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -107,6 +206,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bttnAddClient;
+    private javax.swing.JButton btnAddApartment;
+    private javax.swing.JButton btnAddClient;
+    private javax.swing.JButton btnChange;
+    private javax.swing.JButton btnChangeAppartment;
+    private javax.swing.JButton btnRemoveAppartment;
+    private javax.swing.JButton btnRemoveClient;
+    private javax.swing.JList jList1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList lstClients;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -162,4 +162,17 @@ public class Client {
     public void setDemandant(boolean demandant){
         this.demandant = demandant;
     }
+    
+    /**
+     * toString method
+     * @return string object with a little information about the client
+     */
+    @Override
+    public String toString(){
+        String s;
+        String strDNI = Integer.toString(this.dni);
+        String strNumber = Integer.toString(this.number);
+        s = this.name + " | DNI: " + strDNI + " | Telephon number: " + strNumber;
+        return s;
+    }
 }
