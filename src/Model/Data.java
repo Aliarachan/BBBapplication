@@ -10,5 +10,6 @@ package Model;
  * @author aferrama10.alumnes
  */
 public class Data {
-    
+   
+    //Toqueteado por Aina
 }
