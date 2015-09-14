@@ -1,7 +1,7 @@
 
 package Model;
 
-
+//La ha tocado m5m7n5
 public class Apartment {
     
     protected int dni;
