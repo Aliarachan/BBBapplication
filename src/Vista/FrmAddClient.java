@@ -152,7 +152,7 @@ public class FrmAddClient extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,6 +162,10 @@ public class FrmAddClient extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
+    /**
+     * It creates a new Client with given information and closes the window
+     * @param evt 
+     */
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
         newClient = new Client (txtName.getText(), Integer.parseInt(txtDNI.getText()), Integer.parseInt(txtNumber.getText()));
         newClient.setEmail(txtEmail.getText());
@@ -173,11 +177,19 @@ public class FrmAddClient extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnDoneActionPerformed
 
+    /**
+     * It cancels the new client creation and closes the window
+     * @param evt 
+     */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         newClient = null; //If we close the dialog cancelling the option, the client must be null.
         this.dispose(); //We close the dialog.
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    /**
+     * Gives the client (can be null if not created).
+     * @return object Client if created, null if cancelled.
+     */
     public Client getClient(){
         return this.newClient;
     }
