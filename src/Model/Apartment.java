@@ -4,7 +4,7 @@ package Model;
 
 public class Apartment {
     
-    private int dni;
+    private Client client;
     private String address;
     private boolean selling;
     private boolean renting;
@@ -17,40 +17,31 @@ public class Apartment {
 
     /**
      * Constructor of the class Apartment.
-     * @param dni 
+     * @param client
      * @param address 
-     * @param selling 
-     * @param renting
-     * @param monthly
-     * @param totalPrice
-     * @param inventory 
      */
-    protected Apartment (int dni, String address, boolean selling, boolean 
-            renting, int monthly, long totalPrice, String inventory) {
-        
-        this.dni = dni;
+    protected Apartment (Client client, String address) {    
+        this.client = client;
         this.address = address;
-        this.selling = selling;
-        this.renting = renting;
-        this.monthly = monthly;
-        this.totalPrice = totalPrice;
-        this.inventory = inventory;
     }
     
+    //
     /**
-     * setter of dni
-     * @param dni 
+     * setter of client
+     * @param client
      */
-    public void setDNI(int dni) {
-        this.dni = dni;
-    }
+    //
+    
+    //public void setClient(Client client) {
+    //    this.client = client;
+    //}
     
     /**
-     * getter of dni
+     * getter of client
      * @return 
      */
-    public int getDNI() {
-        return this.dni;
+    public Client getClient() {
+        return this.client;
     }
     
     /**

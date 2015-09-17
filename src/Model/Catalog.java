@@ -63,6 +63,7 @@ public class Catalog {
         int incremento = 0;
         String aux = "";
         
+        
         for (incremento = 0; incremento >= list.size(); incremento++){
             aux = aux + list.get(incremento).toString() + "/n";
         }
