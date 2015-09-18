@@ -57,6 +57,14 @@ public class Schedule {
     }
     
     /**
+     * Method that returns the array list of appointments. 
+     * @return array list of appointments. 
+     */
+    public ArrayList getArrayList(){
+        return this.list;
+    }
+    
+    /**
      * Method toString of the class.
      * @return 
      */

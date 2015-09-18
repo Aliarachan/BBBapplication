@@ -53,6 +53,14 @@ public class ClientList {
     public int clientNumber(){
         return list.size();
     }
+    
+    /**
+     * Method that returns the array list of clients. 
+     * @return 
+     */
+    public ArrayList getArrayList(){
+        return this.list;
+    }
 
     /**
      * Method toString of the class.

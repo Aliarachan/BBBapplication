@@ -1,6 +1,8 @@
 package Model;
 
-public class Data {
+import java.io.Serializable;
+
+public class Data implements Serializable{
     
     private Catalog catalog;
     private Schedule schedule;
@@ -112,6 +114,30 @@ public class Data {
      */
     public Appointment getAppointment(int n){
         return schedule.getAppointmentByIndex(n);
+    }
+    
+    /**
+     * Method that returns the catalog.
+     * @return object catalog.
+     */
+    public Catalog getCatalog(){
+        return this.catalog;
+    }
+    
+    /**
+     * Method that returns the schedule.
+     * @return object schedule.
+     */
+    public Schedule getSchedule(){
+        return this.schedule;
+    }
+    
+    /**
+     * Method that returns the client list.
+     * @return object client list. 
+     */
+    public ClientList getClientList(){
+        return this.clientList;
     }
     
 }
