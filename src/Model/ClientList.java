@@ -34,7 +34,7 @@ public class ClientList {
      * Method taht remove a client selected by client object.
      * @param c 
      */
-    public void removeCient(Client c){
+    public void removeClient(Client c){
         list.remove(c);
     }
     
