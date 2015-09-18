@@ -67,7 +67,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                      <EmptySpace pref="111" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnDone" min="-2" pref="103" max="-2" attributes="0"/>
@@ -146,17 +146,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Day (XX)"/>
+        <Property name="text" type="java.lang.String" value="Day (DD)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Month (XX)"/>
+        <Property name="text" type="java.lang.String" value="Month (MM)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Year (XXXX)"/>
+        <Property name="text" type="java.lang.String" value="Year (YYYY)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">

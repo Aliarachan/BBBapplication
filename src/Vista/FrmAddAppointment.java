@@ -59,11 +59,11 @@ public class FrmAddAppointment extends javax.swing.JDialog {
 
         jLabel3.setText("/");
 
-        jLabel4.setText("Day (XX)");
+        jLabel4.setText("Day (DD)");
 
-        jLabel5.setText("Month (XX)");
+        jLabel5.setText("Month (MM)");
 
-        jLabel6.setText("Year (XXXX)");
+        jLabel6.setText("Year (YYYY)");
 
         jLabel7.setText("Name:");
 
@@ -124,7 +124,7 @@ public class FrmAddAppointment extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtName)
                                     .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))
-                        .addContainerGap(117, Short.MAX_VALUE))
+                        .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

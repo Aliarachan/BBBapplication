@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -31,18 +34,18 @@
                   <Component id="btnAddAppointment" max="32767" attributes="0"/>
                   <Component id="btnAddClient" max="32767" attributes="0"/>
                   <Component id="btnRemoveClient" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnChange" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnChangeClient" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane1" pref="230" max="32767" attributes="0"/>
-                  <Component id="jScrollPane3" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnAddApartment" max="32767" attributes="0"/>
-                  <Component id="btnRemoveAppartment" max="32767" attributes="0"/>
-                  <Component id="btnChangeAppartment" max="32767" attributes="0"/>
+                  <Component id="btnRemoveApartment" max="32767" attributes="0"/>
+                  <Component id="btnChangeApartment" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -52,7 +55,7 @@
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,16 +67,16 @@
                   <Group type="102" attributes="0">
                       <Component id="btnAddApartment" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btnRemoveAppartment" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnRemoveApartment" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="btnChangeAppartment" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btnChangeApartment" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="btnAddClient" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="btnRemoveClient" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="btnChange" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnChangeClient" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" alignment="0" pref="247" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
@@ -87,11 +90,11 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="btnChangeAppointment" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane3" min="-2" pref="247" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       <Component id="btnSaveChanges" min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane4" alignment="0" min="-2" pref="247" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
@@ -124,7 +127,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveClientActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnChange">
+    <Component class="javax.swing.JButton" name="btnChangeClient">
       <Properties>
         <Property name="text" type="java.lang.String" value="Change Client"/>
       </Properties>
@@ -142,25 +145,31 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lstClientsValueChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="btnAddApartment">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add Appartment"/>
+        <Property name="text" type="java.lang.String" value="Add Apartment"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddApartmentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRemoveAppartment">
+    <Component class="javax.swing.JButton" name="btnRemoveApartment">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Remove Appartment"/>
+        <Property name="text" type="java.lang.String" value="Remove Apartment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveApartmentActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnChangeAppartment">
+    <Component class="javax.swing.JButton" name="btnChangeApartment">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Change Appartment"/>
+        <Property name="text" type="java.lang.String" value="Change Apartment"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -170,12 +179,15 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList1">
+        <Component class="javax.swing.JList" name="lstCatalog">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lstCatalogValueChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -194,31 +206,41 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveAppointmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnChangeAppointment">
       <Properties>
         <Property name="text" type="java.lang.String" value="Change Appointment"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+    <Component class="javax.swing.JButton" name="btnSaveChanges">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save changes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveChangesActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JList" name="lstSchedule">
           <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lstScheduleValueChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnSaveChanges">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Save changes"/>
-      </Properties>
-    </Component>
   </SubComponents>
 </Form>

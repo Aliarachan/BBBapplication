@@ -6,8 +6,16 @@
 package Vista;
 
 import Controlador.CtrlApplication;
+import Model.Apartment;
 import Model.Appointment;
 import Model.Client;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +29,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        //loadChanges();
+        setComponents();
         controller = new CtrlApplication();
         saved = false;
         this.setTitle("BBB APPLICATION");
@@ -37,22 +47,27 @@ public class Menu extends javax.swing.JFrame {
 
         btnAddClient = new javax.swing.JButton();
         btnRemoveClient = new javax.swing.JButton();
-        btnChange = new javax.swing.JButton();
+        btnChangeClient = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstClients = new javax.swing.JList();
         btnAddApartment = new javax.swing.JButton();
-        btnRemoveAppartment = new javax.swing.JButton();
-        btnChangeAppartment = new javax.swing.JButton();
+        btnRemoveApartment = new javax.swing.JButton();
+        btnChangeApartment = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        lstCatalog = new javax.swing.JList();
         btnAddAppointment = new javax.swing.JButton();
         btnRemoveAppointment = new javax.swing.JButton();
         btnChangeAppointment = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         btnSaveChanges = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lstSchedule = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         btnAddClient.setText("Add Client");
         btnAddClient.addActionListener(new java.awt.event.ActionListener() {
@@ -71,22 +86,37 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnChange.setText("Change Client");
+        btnChangeClient.setText("Change Client");
 
+        lstClients.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstClientsValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstClients);
 
-        btnAddApartment.setText("Add Appartment");
+        btnAddApartment.setText("Add Apartment");
         btnAddApartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddApartmentActionPerformed(evt);
             }
         });
 
-        btnRemoveAppartment.setText("Remove Appartment");
+        btnRemoveApartment.setText("Remove Apartment");
+        btnRemoveApartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveApartmentActionPerformed(evt);
+            }
+        });
 
-        btnChangeAppartment.setText("Change Appartment");
+        btnChangeApartment.setText("Change Apartment");
 
-        jScrollPane2.setViewportView(jList1);
+        lstCatalog.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstCatalogValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(lstCatalog);
 
         btnAddAppointment.setText("Add Appointment");
         btnAddAppointment.setPreferredSize(new java.awt.Dimension(81, 23));
@@ -97,14 +127,27 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnRemoveAppointment.setText("Remove Appointment");
+        btnRemoveAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveAppointmentActionPerformed(evt);
+            }
+        });
 
         btnChangeAppointment.setText("Change Appointment");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
-
         btnSaveChanges.setText("Save changes");
+        btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveChangesActionPerformed(evt);
+            }
+        });
+
+        lstSchedule.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstScheduleValueChanged(evt);
+            }
+        });
+        jScrollPane4.setViewportView(lstSchedule);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,23 +161,23 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnAddAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoveClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnChangeClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane4))
                 .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAddApartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRemoveAppartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnChangeAppartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRemoveApartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnChangeApartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,15 +187,15 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAddApartment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(btnRemoveAppartment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemoveApartment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(btnChangeAppartment, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnChangeApartment, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnRemoveClient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(btnChange, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnChangeClient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addGap(76, 76, 76)
@@ -163,10 +206,10 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnRemoveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(btnChangeAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -189,8 +232,17 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddClientActionPerformed
 
+    /**
+     * This method allows to remove a selected client.
+     * @param evt 
+     */
     private void btnRemoveClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveClientActionPerformed
-        // TODO add your handling code here:
+        for(Object item: lstClients.getSelectedValuesList()){ 
+             Client selected = (Client) item;
+             controller.removeClient(selected);
+             updateClientList();
+
+        }
     }//GEN-LAST:event_btnRemoveClientActionPerformed
 
     /**
@@ -205,7 +257,7 @@ public class Menu extends javax.swing.JFrame {
         Apartment apartment = dialog.getApartment();
         if(apartment != null){
             controller.addApartment(apartment);
-            updateCatalogue();
+            updateCatalog();
         }
     }//GEN-LAST:event_btnAddApartmentActionPerformed
 
@@ -226,23 +278,159 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddAppointmentActionPerformed
 
     /**
+     * This methods allows to enable the removeClient, changeClient buttons if some client is previously selected. 
+     * @param evt 
+     */
+    private void lstClientsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstClientsValueChanged
+        btnRemoveClient.setEnabled(!lstClients.isSelectionEmpty());
+        btnChangeClient.setEnabled(!lstClients.isSelectionEmpty());
+    }//GEN-LAST:event_lstClientsValueChanged
+
+    /**
+     * This method allows to enable the removeApartment, changeApartment buttons if some apartment is previously selected. 
+     * @param evt 
+     */
+    private void lstCatalogValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstCatalogValueChanged
+        btnRemoveApartment.setEnabled(!lstCatalog.isSelectionEmpty());
+        btnChangeApartment.setEnabled(!lstCatalog.isSelectionEmpty());
+    }//GEN-LAST:event_lstCatalogValueChanged
+
+    /**
+     * This method allows to remove the selected apartments from the catalog.
+     * @param evt 
+     */
+    private void btnRemoveApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveApartmentActionPerformed
+        for(Object item: lstCatalog.getSelectedValuesList()){ 
+             Apartment selected = (Apartment) item;
+             controller.removeApartment(selected);
+             updateCatalog();
+
+        }
+    }//GEN-LAST:event_btnRemoveApartmentActionPerformed
+
+    /**
+     * This method allows to enable the removeAppointment, ChangeAppointment buttons if some appointmnet is previously selected.
+     * @param evt 
+     */
+    private void lstScheduleValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstScheduleValueChanged
+        btnRemoveAppointment.setEnabled(!lstSchedule.isSelectionEmpty());
+        btnChangeAppointment.setEnabled(!lstSchedule.isSelectionEmpty());
+    }//GEN-LAST:event_lstScheduleValueChanged
+
+    /**
+     * This method allows to remove the selected appointments from the schedule.
+     * @param evt 
+     */
+    private void btnRemoveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveAppointmentActionPerformed
+        for(Object item: lstSchedule.getSelectedValuesList()){ 
+             Appointment selected = (Appointment) item;
+             controller.removeAppointment(selected);
+             updateSchedule();
+
+        }
+    }//GEN-LAST:event_btnRemoveAppointmentActionPerformed
+
+    /**
+     * This method allows to save changes whenever the button is pressed. 
+     * @param evt 
+     */
+    private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
+        try {
+            controller.saveData();
+            saved = true;
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Some error ocurred. Please, try saving again.", "Warning!", JOptionPane.WARNING_MESSAGE);;
+        }
+    }//GEN-LAST:event_btnSaveChangesActionPerformed
+
+    /**
+     * Whenever the windows is closed, it checks if the changes have been saved and asks to user wants to save them. 
+     * @param evt 
+     */
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        askForSaving();
+    }//GEN-LAST:event_formWindowClosing
+
+    /**
      * Updates the Client List in the menu.
      */
-    private void updateClientList() {
+    private void updateClientList(){
+        DefaultListModel model = new DefaultListModel();
+        model.clear();
+        ArrayList<Client> currentLst = controller.getClientList().getArrayList();
+        for (Iterator it = currentLst.iterator(); it.hasNext();) {
+            Client item = (Client)it.next();
+            model.addElement(item);
+        }
+        lstClients.setModel(model);
         
     }
     
     /**
      * Updates the apartment Catalogue in the menu.
      */
-    private void updateCatalogue() {
-       
+    private void updateCatalog() {
+        DefaultListModel model = new DefaultListModel();
+        model.clear();
+        ArrayList<Apartment> currentLst = controller.getCatalog().getArrayList();
+        for (Iterator it = currentLst.iterator(); it.hasNext();){
+            Apartment item = (Apartment)it.next();
+            model.addElement(item);
+        }
+        lstCatalog.setModel(model);
     }
     
     /**
      * Updates the Appointmnet List in the menu.
      */
     private void updateSchedule(){
+        DefaultListModel model = new DefaultListModel();
+        model.clear();
+        ArrayList<Appointment> currentLst = controller.getSchedule().getArrayList();
+        for (Iterator it = currentLst.iterator(); it.hasNext();){
+            Appointment item = (Appointment)it.next();
+            model.addElement(item);
+        }
+        lstSchedule.setModel(model);
+    }
+    
+    private void setComponents(){
+        btnRemoveClient.setEnabled(false);
+        btnChangeClient.setEnabled(false);
+        btnRemoveApartment.setEnabled(false);
+        btnChangeApartment.setEnabled(false);
+        btnRemoveAppointment.setEnabled(false);
+        btnChangeAppointment.setEnabled(false);
+    }
+    
+    /**
+     * Method that automatically load all previous data for the applicartion.
+     */
+    private void loadChanges(){
+        controller.loadData();
+        updateClientList();
+        updateSchedule();
+        updateCatalog();
+    }
+    
+    /**
+     * Method that, when the windows is closed, asks if the data shall be saved. 
+     */
+    private void askForSaving(){
+        if (!saved){
+            String [] options = {"Save", "Close without saving"};
+            int result = JOptionPane.showOptionDialog(this, "You've made changes without asking, do you wish to save?",
+                    "Warning!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                    options, options[0]);
+            if (result == JOptionPane.YES_OPTION){
+                try {
+                    controller.saveData();
+                    saved = true;
+                } catch (IOException ex) {
+                     JOptionPane.showMessageDialog(this, "Some error ocurred. Try saving again.", "Warning!", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
         
     }
     
@@ -285,19 +473,19 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAddApartment;
     private javax.swing.JButton btnAddAppointment;
     private javax.swing.JButton btnAddClient;
-    private javax.swing.JButton btnChange;
-    private javax.swing.JButton btnChangeAppartment;
+    private javax.swing.JButton btnChangeApartment;
     private javax.swing.JButton btnChangeAppointment;
-    private javax.swing.JButton btnRemoveAppartment;
+    private javax.swing.JButton btnChangeClient;
+    private javax.swing.JButton btnRemoveApartment;
     private javax.swing.JButton btnRemoveAppointment;
     private javax.swing.JButton btnRemoveClient;
     private javax.swing.JButton btnSaveChanges;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JList lstCatalog;
     private javax.swing.JList lstClients;
+    private javax.swing.JList lstSchedule;
     // End of variables declaration//GEN-END:variables
 
 }
