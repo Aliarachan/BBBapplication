@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Schedule {
+    
     private ArrayList<Appointment> list;
     
     /**
