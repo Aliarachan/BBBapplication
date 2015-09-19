@@ -3,6 +3,10 @@ package Model;
 import java.util.Calendar;
 
 
+/**
+ * Appointment class: Has all the information about an appointment.
+ * @author jose
+ */
 public class Appointment {
     
     private Calendar date;
@@ -12,18 +16,22 @@ public class Appointment {
     
     /**
      * Constructor of the class Appointment 
-     * @param date
-     * @param dni
-     * @param address
+     * @param date 
+     * @param dni 
+     * @param address 
      * @param done 
      */
-    protected Appointment (Calendar date, int dni, String address, boolean done){
+    public Appointment (Calendar date, int dni, String address, boolean done){
+        //These are all the camps required.
         this.date = date;
         this.dni = dni;
         this.address = address;
         this.done = done;
         
     }
+    
+    //As long as the atributes are private we need getter and setter functions 
+    //to access them
     
     /**
      * setter of date
@@ -35,7 +43,7 @@ public class Appointment {
     
     /**
      * getter of date
-     * @return 
+     * @return Calendar date
      */
     public Calendar getDate(){
         return this.date;
@@ -51,7 +59,7 @@ public class Appointment {
     
     /**
      * getter of DNI
-     * @return 
+     * @return int dni
      */
     public int getDNI (){
         return this.dni;
@@ -67,7 +75,7 @@ public class Appointment {
     
     /**
      * getter of address
-     * @return 
+     * @return String of the apartment's address
      */
     public String getAddress(){
         return this.address;
@@ -83,7 +91,7 @@ public class Appointment {
     
     /**
      * getter of done
-     * @return 
+     * @return boolean done
      */
     public boolean getDone(){
         return this.done;
@@ -91,7 +99,7 @@ public class Appointment {
     
     /**
      * toString returns the address of the apartment visited.
-     * @return 
+     * @return  String of the address of the apartment visited
      */
     @Override
     public String toString(){

@@ -1,7 +1,10 @@
 
 package Model;
 
-
+/**
+ * Apartment class: Has all the information about an apartment
+ * @author jose
+ */
 public class Apartment {
     
     private Client client;
@@ -11,7 +14,7 @@ public class Apartment {
     private int monthly;
     private long totalPrice;
     private String inventory;
-  
+            
     //Posible lista de clientes que estan interesados
     //Posible lista de clientes que han visitado el piso
 
@@ -20,17 +23,15 @@ public class Apartment {
      * @param client
      * @param address 
      */
-    protected Apartment (Client client, String address) {    
+    public Apartment (Client client, String address) {    
+        // These are the minimun attributes required.
         this.client = client;
         this.address = address;
     }
     
-    //
-    /**
-     * setter of client
-     * @param client
-     */
-    //
+    //As long as the atributes are private we need getter and setter functions 
+    //to access them
+    
     
     //public void setClient(Client client) {
     //    this.client = client;
@@ -38,7 +39,7 @@ public class Apartment {
     
     /**
      * getter of client
-     * @return 
+     * @return Client 
      */
     public Client getClient() {
         return this.client;
@@ -54,7 +55,7 @@ public class Apartment {
     
     /**
      * getter of the address
-     * @return 
+     * @return String of the phisic address
      */
     public String getAddress() {
         return this.address;
@@ -70,7 +71,7 @@ public class Apartment {
     
     /**
      * getter of selling
-     * @return 
+     * @return boolean selling
      */
     public boolean getSelling() {
         return this.selling;
@@ -86,7 +87,7 @@ public class Apartment {
     
     /**
      * getter of renting
-     * @return 
+     * @return boolean renting
      */
     public boolean getRenting() {
         return this.renting;
@@ -102,7 +103,7 @@ public class Apartment {
     
     /**
      * getter of monthly
-     * @return 
+     * @return int monthly
      */
     public int getMonthly(){
         return this.monthly;
@@ -118,7 +119,7 @@ public class Apartment {
     
     /**
      * getter of totalPrice
-     * @return 
+     * @return long totalPrice
      */
     public long getTotalPrice(){
         return this.totalPrice;
@@ -134,7 +135,7 @@ public class Apartment {
     
     /**
      * getter of inventory
-     * @return 
+     * @return String inventory
      */
     public String getInventory() {
         return this.inventory;
@@ -142,7 +143,7 @@ public class Apartment {
     
     /**
      * toString returns the address of the apartment.
-     * @return 
+     * @return String of the apartment's address.
      */
     @Override
     public String toString () {

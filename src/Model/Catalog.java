@@ -2,19 +2,22 @@ package Model;
 
 import java.util.ArrayList;
 
-
+/**
+ * Catalog class: Has all the information about the apartments available.
+ * @author jose
+ */
 public class Catalog {
     private ArrayList <Apartment> list;
     
     /**
      * Constructor of the class Catalog
      */
-    protected Catalog (){
+    public Catalog (){
         list = new ArrayList <Apartment>();
     }
     
     /**
-     * Method to return the apartment asociated to the index passed as parameter.
+     * Method to return the apartment asociated to the index passed as a parameter.
      * @param index
      * @return 
      */
@@ -23,7 +26,7 @@ public class Catalog {
     }
     
     /**
-     * Method to remove the apartment associated to the index passed as parameter.
+     * Method to remove the apartment associated to the index passed as a parameter.
      * @param index 
      */
     public void removeApartment(int index){
@@ -31,7 +34,7 @@ public class Catalog {
     }
     
     /**
-     * Method to remove the apartment passed as parameter.
+     * Method to remove the apartment passed as a parameter.
      * @param apartment 
      */
     public void removeApartment(Apartment apartment){
@@ -56,13 +59,12 @@ public class Catalog {
     
     /**
      * ToString returns the list of apartments available.
-     * @return 
+     * @return String of the list of apartments available.
      */
     @Override
     public String toString(){
         int incremento = 0;
         String aux = "";
-        
         
         for (incremento = 0; incremento >= list.size(); incremento++){
             aux = aux + list.get(incremento).toString() + "/n";
