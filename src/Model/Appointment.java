@@ -103,6 +103,8 @@ public class Appointment {
      */
     @Override
     public String toString(){
-        return this.address;
+        String s;
+        s = "Day: " + date.get(Calendar.DAY_OF_MONTH) + " | Month:  " + date.get(Calendar.MONTH) + " | Year:  " + date.get(Calendar.YEAR) + " | Address: " + this.address;
+        return s;
     }
 }

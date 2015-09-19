@@ -9,6 +9,7 @@ import Controlador.CtrlApplication;
 import Model.Apartment;
 import Model.Appointment;
 import Model.Client;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -258,6 +259,18 @@ public class Menu extends javax.swing.JFrame {
         if(apartment != null){
             controller.addApartment(apartment);
             updateCatalog();
+            Client auxClient = apartment.getClient();
+            if (!controller.getClientList().checkClientOnClientList(auxClient)){
+                String [] options = {"Yes", "No"};
+            int result = JOptionPane.showOptionDialog(this, "You've created apartment whose owner is not on your client list. Do you wish to add the owner?",
+                    "Warning!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                    options, options[0]);
+                if (result == JOptionPane.YES_OPTION){
+                    controller.addClient(auxClient);
+                    updateClientList();
+                }
+                
+            }
         }
     }//GEN-LAST:event_btnAddApartmentActionPerformed
 
@@ -339,7 +352,7 @@ public class Menu extends javax.swing.JFrame {
             controller.saveData();
             saved = true;
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Some error ocurred. Please, try saving again.", "Warning!", JOptionPane.WARNING_MESSAGE);;
+            JOptionPane.showMessageDialog(this, "Some error ocurred. Please, try saving again.", "Warning!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
@@ -406,7 +419,7 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Method that automatically load all previous data for the applicartion.
      */
-    private void loadChanges(){
+    private void loadChanges() throws IOException, FileNotFoundException, ClassNotFoundException{
         controller.loadData();
         updateClientList();
         updateSchedule();

@@ -57,6 +57,9 @@ public class Catalog {
         this.list.add(apartment);
     }
     
+    public ArrayList getArrayList(){
+        return this.list;
+    }
     /**
      * ToString returns the list of apartments available.
      * @return String of the list of apartments available.
