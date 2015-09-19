@@ -45,7 +45,7 @@ public class CtrlApplication {
      * @param a apartment to remove
      */
     public void removeApartment(Apartment a){
-        data.removeAparment(a);
+        data.removeApartment(a);
     }
     
     /**

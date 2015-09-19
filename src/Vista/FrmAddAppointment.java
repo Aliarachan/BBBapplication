@@ -6,6 +6,7 @@
 package Vista;
 
 import Model.Appointment;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -174,7 +175,11 @@ public class FrmAddAppointment extends javax.swing.JDialog {
      * @param evt 
      */
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-        newAppointment = new Appointment(new Date(Integer.parseInt(txtMonth.getText()), Integer.parseInt(txtDay.getText()), Integer.parseInt(txtYear.getText())), Integer.parseInt(txtDNI.getText()), txtAddress.getText());
+        Calendar date = Calendar.getInstance();
+        date.set(Calendar.YEAR, Integer.parseInt(txtYear.getText()));
+        date.set(Calendar.MONTH, Integer.parseInt(txtMonth.getText()));
+        date.set(Calendar.DAY_OF_MONTH, Integer.parseInt(txtDay.getText()));
+        newAppointment = new Appointment(date, Integer.parseInt(txtDNI.getText()), txtAddress.getText(), false);
         this.dispose();
     }//GEN-LAST:event_btnDoneActionPerformed
 

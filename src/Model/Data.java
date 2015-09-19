@@ -22,7 +22,7 @@ public class Data implements Serializable{
      * @param a 
      */
     public void addApartment(Apartment a){
-        catalog.addApartmetn(a);
+        catalog.addApartment(a);
     }
     
     /**

@@ -75,4 +75,13 @@ public class ClientList {
         }
         return aux;
     }
+    
+    /**
+     * Method that checks if a client is in the current client list.
+     * @param c
+     * @return 
+     */
+    public boolean checkClientOnClientList(Client c){
+        return list.contains(c);
+    }
 }
