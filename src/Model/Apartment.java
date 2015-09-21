@@ -13,19 +13,16 @@ public class Apartment {
     private boolean renting;
     private int monthly;
     private long totalPrice;
-    private String inventory;
             
     //Posible lista de clientes que estan interesados
     //Posible lista de clientes que han visitado el piso
 
     /**
      * Constructor of the class Apartment.
-     * @param client
      * @param address 
      */
-    public Apartment (Client client, String address) {    
+    public Apartment (String address) {    
         // These are the minimun attributes required.
-        this.client = client;
         this.address = address;
     }
     
@@ -124,21 +121,14 @@ public class Apartment {
     public long getTotalPrice(){
         return this.totalPrice;
     }
-    
+
     /**
-     * setter of inventory
-     * @param inventory 
+     * Override compareTo in order to compare two apartments by address.
+     * @param apart Apartment to compare with.
+     * @return int 
      */
-    public void setInventory(String inventory){
-        this.inventory = inventory;
-    }
-    
-    /**
-     * getter of inventory
-     * @return String inventory
-     */
-    public String getInventory() {
-        return this.inventory;
+    public int compareTo(Apartment apart) {
+        return this.address.compareTo(apart.getAddress());
     }
     
     /**

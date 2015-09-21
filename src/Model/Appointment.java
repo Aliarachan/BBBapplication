@@ -98,6 +98,16 @@ public class Appointment {
     }
     
     /**
+     * Method to check if two appointments are the same
+     * @param a
+     * @return true if the appointments are the same, false if they are different.
+     */
+    public boolean equals(Appointment a){
+        return ((a.getDate().equals(this.date)) & (a.getAddress().equals(this.address)));
+        
+    }
+    
+    /**
      * toString returns the address of the apartment visited.
      * @return  String of the address of the apartment visited
      */

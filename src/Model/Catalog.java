@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Catalog class: Has all the information about the apartments available.
@@ -50,27 +51,46 @@ public class Catalog {
     }
     
     /**
-     * Method to add the apartment passed as a parameter.
+     * Method to add the apartment passed as a parameter if this is not in the list.
      * @param apartment 
      */
     public void addApartment(Apartment apartment){
-        this.list.add(apartment);
+        if (!(this.list.contains(apartment))){
+            this.list.add(apartment);
+        }
     }
     
+    /**
+     * Method to return the list of apartments.
+     * @return Arraylist
+     */
     public ArrayList getArrayList(){
         return this.list;
     }
+    
+    /**
+     * Method to return the list of apartments sorted by address.
+     * @return Arraylist
+     */
+    
+    //REVISAR
+    public ArrayList sortByAddress () {
+        Collections.sort(list, null);
+        return list;
+        
+    }
+    
     /**
      * ToString returns the list of apartments available.
      * @return String of the list of apartments available.
      */
     @Override
     public String toString(){
-        int incremento = 0;
+        int increment = 0;
         String aux = "";
         
-        for (incremento = 0; incremento >= list.size(); incremento++){
-            aux = aux + list.get(incremento).toString() + "/n";
+        for (increment = 0; increment >= list.size(); increment++){
+            aux = aux + list.get(increment).toString() + "/n";
         }
         return aux;
     }
