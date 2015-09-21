@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -7,7 +8,7 @@ import java.util.Collections;
  * Catalog class: Has all the information about the apartments available.
  * @author jose
  */
-public class Catalog {
+public class Catalog implements Serializable{
     private ArrayList <Apartment> list;
     
     /**
@@ -46,7 +47,7 @@ public class Catalog {
      * Method to check if the catalog is empty.
      * @return 
      */
-    public boolean listIsEmpty(){
+    public boolean isEmpty(){
         return this.list.isEmpty();
     }
     

@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * OffProtApartment class: Has the information about an official protected apartment.
  */
-public class OffProtApartment extends Apartment {    
+public class OffProtApartment extends Apartment implements Serializable{    
     private long idNumber;
     
     public OffProtApartment(String address, long idNumber){

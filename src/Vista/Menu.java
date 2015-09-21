@@ -33,9 +33,9 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        //loadChanges();
-        setComponents();
         controller = new CtrlApplication();
+        loadChanges();
+        setComponents();
         saved = false;
         this.setTitle("BBB APPLICATION");
     }
@@ -93,6 +93,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnChangeClient.setText("Change Client");
+        btnChangeClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangeClientActionPerformed(evt);
+            }
+        });
 
         lstClients.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -163,6 +168,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnMostVisitorClients.setText("Show most visitor clients");
+        btnMostVisitorClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostVisitorClientsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,7 +320,7 @@ public class Menu extends javax.swing.JFrame {
                         String [] optionClient = {"Yes", "No"};
                         int resultClient = JOptionPane.showOptionDialog(this, "You've created apartment whose owner is not on your client list. Do you wish to add the owner?",
                         "Warning!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                        options, optionClient[0]);
+                        optionClient, optionClient[0]);
                         
                         //If the user says yes, we just add the Client.
                         if (resultClient == JOptionPane.YES_OPTION){
@@ -435,8 +445,29 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void btnMostVisitedApartmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostVisitedApartmentsActionPerformed
-        
+        FrmSeeApartments dialog = new FrmSeeApartments(this, true, controller.getCatalog());
+        dialog.setTitle("Apartments sorted by number of visits");
+        dialog.pack();
+        dialog.setVisible(true);
+  
     }//GEN-LAST:event_btnMostVisitedApartmentsActionPerformed
+
+    private void btnChangeClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeClientActionPerformed
+        Client c = (Client) lstClients.getSelectedValue();
+        FrmAdminClient dialog = new FrmAdminClient(this,true, c);
+        dialog.setTitle("Change any data you need");
+        dialog.pack();
+        dialog.setVisible(true);
+        updateClientList();
+        
+    }//GEN-LAST:event_btnChangeClientActionPerformed
+
+    private void btnMostVisitorClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostVisitorClientsActionPerformed
+        FrmSeeClients dialog = new FrmSeeClients(this, true, controller.getClientList());
+        dialog.setTitle("Clients sorted by number of visits");
+        dialog.pack();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_btnMostVisitorClientsActionPerformed
 
     /**
      * Updates the Client List in the menu.
@@ -493,8 +524,12 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Method that automatically load all previous data for the applicartion.
      */
-    private void loadChanges() throws IOException, FileNotFoundException, ClassNotFoundException{
-        controller.loadData();
+    private void loadChanges(){
+        try {
+            controller.loadData();
+        } catch (IOException | ClassNotFoundException ex ) {
+            JOptionPane.showMessageDialog(this, "Your previous information may be corrupted. Restart the application.", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
         updateClientList();
         updateSchedule();
         updateCatalog();

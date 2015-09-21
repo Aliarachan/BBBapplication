@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 
@@ -7,7 +8,7 @@ import java.util.Calendar;
  * Appointment class: Has all the information about an appointment.
  * @author jose
  */
-public class Appointment {
+public class Appointment implements Serializable{
     
     private Calendar date;
     private int dni;

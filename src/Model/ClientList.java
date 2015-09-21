@@ -1,9 +1,10 @@
 package Model;
 
 import Exceptions.ClientException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ClientList {
+public class ClientList implements Serializable{
     private ArrayList<Client> list;
     
     /**
@@ -66,7 +67,15 @@ public class ClientList {
     public ArrayList getArrayList(){
         return this.list;
     }
-
+    
+    /**
+     * Checks if the list has any elements.
+     * @return boolean
+     */
+    public boolean isEmpty(){
+        return list.isEmpty();
+    }
+    
     /**
      * Method toString of the class.
      * @return 

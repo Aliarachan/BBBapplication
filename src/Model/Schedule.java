@@ -1,9 +1,10 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Schedule {
+public class Schedule implements Serializable{
     
     private ArrayList<Appointment> list;
     
@@ -62,6 +63,10 @@ public class Schedule {
      */
     public ArrayList getArrayList(){
         return this.list;
+    }
+    
+    public boolean isEmpty(){
+        return list.isEmpty();
     }
     
     /**

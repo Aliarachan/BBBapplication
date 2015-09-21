@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * NewApartment class: Has all the information about the new apartments.
  */
-public class NewApartment extends Apartment {
+public class NewApartment extends Apartment implements Serializable{
     private Client client;
     private float profit;
     

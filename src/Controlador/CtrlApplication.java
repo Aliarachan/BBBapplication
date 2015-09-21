@@ -20,12 +20,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  *
  * @author aferrama10.alumnes
  */
-public class CtrlApplication {
+public class CtrlApplication{
     private Data data;
     
     
@@ -138,28 +139,17 @@ public class CtrlApplication {
      * @throws IOException 
      */
     public void saveData () throws FileNotFoundException, IOException{
-        File fi = new File("data.txt");
-        FileOutputStream fout = new FileOutputStream(fi);
-        ObjectOutputStream oos = new ObjectOutputStream(fout);
-        oos.writeObject(this); 
-        fout.close();
-        
+        data.saveData();
     }
     
     /**
      * Method that allows the application to load the data collected. 
-     * @return
      * @throws FileNotFoundException
      * @throws IOException
      * @throws ClassNotFoundException 
      */
-    public Data loadData() throws FileNotFoundException, IOException, ClassNotFoundException{
-        File fi = new File ("data.txt");
-        FileInputStream fin = new FileInputStream(fi);
-        ObjectInputStream ois = new ObjectInputStream(fin);  
-        Data datas = (Data) ois.readObject();  
-        fin.close();
-        return datas;
+    public void loadData() throws FileNotFoundException, IOException, ClassNotFoundException{
+        data = data.loadData();
         
     }
 }
