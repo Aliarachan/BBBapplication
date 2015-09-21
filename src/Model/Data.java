@@ -1,5 +1,6 @@
 package Model;
 
+import Exceptions.ClientException;
 import java.io.Serializable;
 
 public class Data implements Serializable{
@@ -18,7 +19,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that add an apartment to the catalog.
+     * Method that adds an apartment to the catalog.
      * @param a 
      */
     public void addApartment(Apartment a){
@@ -26,7 +27,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that add an appointment to the schedule.
+     * Method that adds an appointment to the schedule.
      * @param a 
      */
     public void addAppointment(Appointment a){
@@ -34,15 +35,15 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that add a client to the client list.
+     * Method that adds a client to the client list.
      * @param a 
      */
-    public void addClient(Client c){
+    public void addClient(Client c) throws ClientException{
         clientList.addClient(c);
     }
     
     /**
-     * Method that remove an apartment from the catalog by object.
+     * Method that removes an apartment from the catalog by object.
      * @param a 
      */
     public void removeApartment(Apartment a){
@@ -50,7 +51,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that remove an apartment from the catalog by index.
+     * Method that removes an apartment from the catalog by index.
      * @param n
      */
     public void removeApartment(int n){
@@ -58,7 +59,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that remove an appointment from the schedule by item.
+     * Method that removes an appointment from the schedule by item.
      * @param a 
      */
     public void removeAppointment(Appointment a){
@@ -66,7 +67,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that remove an appointment from the schedule by index.
+     * Method that removes an appointment from the schedule by index.
      * @param n
      */
     public void removeAppointment(int n){
@@ -74,7 +75,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that remove a client from the client list by item.
+     * Method that removes a client from the client list by item.
      * @param c
      */
     public void removeClient(Client c){
@@ -82,7 +83,7 @@ public class Data implements Serializable{
     }
     
      /**
-     * Method that remove a client from the client list by index.
+     * Method that removes a client from the client list by index.
      * @param n
      */
     public void removeClient(int n){
@@ -90,7 +91,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that return a client selected by index from the clientlist.
+     * Method that returns a client selected by index from the clientlist.
      * @param n
      * @return 
      */
@@ -99,7 +100,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that return an apartment selected by index from the catalog.
+     * Method that returns an apartment selected by index from the catalog.
      * @param n
      * @return 
      */
@@ -108,7 +109,7 @@ public class Data implements Serializable{
     }
     
     /**
-     * Method that return an appointment selected by index from the schedule.
+     * Method that returns an appointment selected by index from the schedule.
      * @param n
      * @return 
      */
