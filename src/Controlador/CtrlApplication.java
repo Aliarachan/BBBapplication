@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Exceptions.ClientException;
 import Model.Apartment;
 import Model.Appointment;
 import Model.Catalog;
@@ -86,7 +87,7 @@ public class CtrlApplication {
      * Inter method that calls data to add a certain client.
      * @param c object client to add.
      */
-    public void addClient(Client c){
+    public void addClient(Client c) throws ClientException{
         data.addClient(c);
     }
     

@@ -6,9 +6,12 @@
 package Vista;
 
 import Controlador.CtrlApplication;
+import Exceptions.ClientException;
 import Model.Apartment;
 import Model.Appointment;
 import Model.Client;
+import Model.NewApartment;
+import Model.OffProtApartment;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -250,9 +253,12 @@ public class Menu extends javax.swing.JFrame {
         dialog.setVisible(true);
         Client client = dialog.getClient();
         if (client != null){
-            //Try catch
-            controller.addClient(client);
-            updateClientList();
+            try {
+                controller.addClient(client);
+                updateClientList();
+            } catch (ClientException ex) {
+                JOptionPane.showMessageDialog(this, "This Client is repeated", "Error!", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnAddClientActionPerformed
 
@@ -274,27 +280,68 @@ public class Menu extends javax.swing.JFrame {
      * @param evt 
      */
     private void btnAddApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApartmentActionPerformed
-        FrmAddApartment dialog = new FrmAddApartment(this, true);
-        dialog.setTitle("Apartment Data");
-        dialog.pack();
-        dialog.setVisible(true);
-        Apartment apartment = dialog.getApartment();
-        if(apartment != null){
-            controller.addApartment(apartment);
-            updateCatalog();
-            Client auxClient = apartment.getClient();
-            if (!controller.getClientList().checkClientOnClientList(auxClient)){
-                String [] options = {"Yes", "No"};
-            int result = JOptionPane.showOptionDialog(this, "You've created apartment whose owner is not on your client list. Do you wish to add the owner?",
-                    "Warning!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+        //First of all, I guide the user by showing two options: creating a new apartment or a offprotection apartment.
+        String [] options = {"Offprotection apartment", "New apartment"};
+            int result = JOptionPane.showOptionDialog(this, "Which kind of apartment do you want to add?",
+                    "Choose one", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                     options, options[0]);
-                if (result == JOptionPane.YES_OPTION){
-                    controller.addClient(auxClient);
-                    updateClientList();
-                }
+            
+            //If the user choses the second option, which is the NEW APARTMENT option, we proceed one way:
+            //We open a frame which all information needed for the newApartment can be fulfilled.
+            if (result == JOptionPane.NO_OPTION){
+                FrmAddApartment dialog = new FrmAddApartment(this, true);
+                dialog.setTitle("New apartment Data");
+                dialog.pack();
+                dialog.setVisible(true);
+                NewApartment apartment = dialog.getNewApartment();
                 
+                //Reached this point, the user has entered and gotten out of the New Apartment frame.
+                //If the option has been cancelled, then we may have a null new apartment.
+                //Otherwise, we are willing to put this new apartment in the apartment's Catalog.
+                if(apartment != null){
+                    controller.addApartment(apartment);
+                    updateCatalog();
+                    Client auxClient = apartment.getClient();
+                    
+                    //Since a newApartment has an Owner, we understand that the OWNER can be a CLIENT.
+                    //If the user has given one DNI that is not in our ClientList, then we offer the utility to automatically add the client.
+                    //We ask if the user wants it so with another option pane.
+                    if (!controller.getClientList().checkClientOnClientList(auxClient)){
+                        String [] optionClient = {"Yes", "No"};
+                        int resultClient = JOptionPane.showOptionDialog(this, "You've created apartment whose owner is not on your client list. Do you wish to add the owner?",
+                        "Warning!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                        options, optionClient[0]);
+                        
+                        //If the user says yes, we just add the Client.
+                        if (resultClient == JOptionPane.YES_OPTION){
+                            try {
+                                controller.addClient(auxClient);
+                                updateClientList();
+                            } catch (ClientException ex) {
+                                //We don't need an exception here.
+                                 //If the user inputs an apartment whose owner is not in the list, it gets added.
+                                //So it's no use to have the exception here, it should never happen to get here.
+                                System.out.println("We should never get here");
+                             }
+                        }
+                    }
+                }
+                         
+            //OTHERWISE, if the user asks to create an OFFPROTECTION apartment, we proceed here.
+            //We open another Dialog where we provide all camps that must be fulfilled to creat such an apartment.
+            } else if(result == JOptionPane.YES_OPTION){
+                FrmAddOffProt dialog2 = new FrmAddOffProt(this, true);
+                dialog2.setTitle("Offprotection Apartment Data");
+                dialog2.pack();
+                dialog2.setVisible(true);
+                
+                OffProtApartment offApartment = dialog2.getOffProtApartment();
+                if (offApartment != null){
+                    controller.addApartment(offApartment);
+                    updateCatalog();
+                }
             }
-        }
+    
     }//GEN-LAST:event_btnAddApartmentActionPerformed
 
     /**
