@@ -1,12 +1,14 @@
 package Model;
 
+import java.io.Serializable;
+
 
 
 /**
  * Client class, has all the information needed to identify a BBB client.
  * @author aferrama10.alumnes
  */
-public class Client {
+public class Client implements Serializable{
     
     //Attributes are private so we can only access them through the getters/setters functions.
     private String name;

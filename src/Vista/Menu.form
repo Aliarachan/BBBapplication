@@ -146,6 +146,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Change Client"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeClientActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -269,6 +272,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Show most visitor clients"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostVisitorClientsActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

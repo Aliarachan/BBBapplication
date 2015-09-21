@@ -1,6 +1,13 @@
 package Model;
 
 import Exceptions.ClientException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Data implements Serializable{
@@ -139,6 +146,37 @@ public class Data implements Serializable{
      */
     public ClientList getClientList(){
         return this.clientList;
+    }
+    
+    /**
+     * Method that allows the application to save the data collected. 
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
+    public void saveData () throws FileNotFoundException, IOException{
+        File fi = new File("data");
+        FileOutputStream fout = new FileOutputStream(fi);
+        ObjectOutputStream oos = new ObjectOutputStream(fout);
+        oos.writeObject(this); 
+        fout.close();
+        
+    }
+    
+        /**
+     * Method that allows the application to load the data collected. 
+     * @return data to be loaded
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException 
+     */
+    public Data loadData() throws FileNotFoundException, IOException, ClassNotFoundException{
+        File fi = new File ("data");
+        FileInputStream fin = new FileInputStream(fi);
+        ObjectInputStream ois = new ObjectInputStream(fin);  
+        Data data = (Data) ois.readObject();  
+        fin.close();
+        return data;
+        
     }
     
 }

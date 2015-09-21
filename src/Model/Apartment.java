@@ -1,13 +1,14 @@
 
 package Model;
 
+import java.io.Serializable;
+
 /**
  * Apartment class: Has all the information about an apartment
  * @author jose
  */
-public class Apartment {
+public class Apartment implements Serializable {
     
-    private Client client;
     private String address;
     private boolean selling;
     private boolean renting;
