@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 /**
- *
- * @author jlamasro7.alumnes
+ * OffProtApartment class: Has the information about an official protected apartment.
  */
 public class OffProtApartment extends Apartment {    
     private long idNumber;
@@ -16,4 +10,22 @@ public class OffProtApartment extends Apartment {
         super(address);
         this.idNumber = idNumber;
     }
+    
+    /**
+     * setter of idNumber
+     * @param idNumber 
+     */
+    public void setIdNumber(long idNumber){
+        this.idNumber = idNumber;
+    }
+    
+    /**
+     * getter of idNumber
+     * @return 
+     */
+    public long getIdNumber(){
+        return this.idNumber;
+    }
+    
+    
 }

@@ -1,19 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 /**
- *
- * @author jlamasro7.alumnes
+ * NewApartment class: Has all the information about the new apartments.
  */
 public class NewApartment extends Apartment {
-
-    public NewApartment(String address) {
-        super(address);
-    }
-   
+    private Client client;
+    private float profit;
     
+    public NewApartment(Client client, String address) {
+        super(address);
+        this.client = client;
+    }
+    
+    /**
+     * getter of client
+     * @return Client
+     */
+    public Client getClient(){
+        return this.client;
+    }
+    
+    /**
+     * setter of profit
+     * @param profit 
+     */
+    public void setProfit(float profit){
+        this.profit = profit;
+    }
+    
+    /**
+     * getter of profit
+     * @return double profit
+     */
+    public float getProfit(){
+        return this.profit;
+    }
 }

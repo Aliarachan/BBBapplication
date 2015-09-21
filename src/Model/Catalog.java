@@ -69,15 +69,31 @@ public class Catalog {
     }
     
     /**
-     * Method to return the list of apartments sorted by address.
-     * @return Arraylist
+     * Method to sort the list of apartments by address.
      */
+    public void sortByAddress () {
+        list.sort(null);  
+    }
     
-    //REVISAR
-    public ArrayList sortByAddress () {
-        Collections.sort(list, null);
-        return list;
-        
+    /**
+     * Method to sort the list of apartments by the number of visits done.
+     */
+    public void sortByNumberOfVisits(){
+        int i;
+        boolean flag = true;
+        Apartment aux;
+         while(flag){
+             flag = false;
+             for(i=0;i<list.size();i++){
+                 if(list.get(i).getNumVisits() <list.get(i+1).getNumVisits()){
+                     aux = list.get(i);
+                     list.set(i,list.get(i+1));
+                     list.set(i+1,aux);
+                     flag = true;
+                 }
+             }
+         
+         }
     }
     
     /**
