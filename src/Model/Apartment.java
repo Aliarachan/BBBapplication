@@ -13,10 +13,8 @@ public class Apartment {
     private boolean renting;
     private int monthly;
     private long totalPrice;
+    private int numVisits;
             
-    //Posible lista de clientes que estan interesados
-    //Posible lista de clientes que han visitado el piso
-
     /**
      * Constructor of the class Apartment.
      * @param address 
@@ -26,21 +24,9 @@ public class Apartment {
         this.address = address;
     }
     
-    //As long as the atributes are private we need getter and setter functions 
+    //Since the atributes are private we need getter and setter functions 
     //to access them
     
-    
-    //public void setClient(Client client) {
-    //    this.client = client;
-    //}
-    
-    /**
-     * getter of client
-     * @return Client 
-     */
-    public Client getClient() {
-        return this.client;
-    }
     
     /**
      * setter of the address
@@ -121,9 +107,25 @@ public class Apartment {
     public long getTotalPrice(){
         return this.totalPrice;
     }
-
+    
     /**
-     * Override compareTo in order to compare two apartments by address.
+     * setter of numVisits
+     * @param numVisits 
+     */
+    public void setNumVisits(int numVisits){
+        this.numVisits = numVisits;
+    }
+    
+    /**
+     * getter of numVisits
+     * @return 
+     */
+    public int getNumVisits(){
+        return this.numVisits;
+    }
+    
+    /**
+     * Overwrite compareTo in order to compare two apartments by address.
      * @param apart Apartment to compare with.
      * @return int 
      */
