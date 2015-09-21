@@ -1,5 +1,6 @@
 package Model;
 
+import Exceptions.ClientException;
 import java.util.ArrayList;
 
 public class ClientList {
@@ -25,8 +26,12 @@ public class ClientList {
      * Method that adds a client to the current list.
      * @param c
      * @return 
+     * @throws Exceptions.ClientException 
      */
-    public boolean addClient(Client c){
+    public boolean addClient(Client c) throws ClientException{
+        if(list.contains(c)){
+            throw new ClientException("This client is repeated.");
+        }
         return list.add(c);
     }
     

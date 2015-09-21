@@ -1,5 +1,6 @@
 package Model;
 
+import Exceptions.ClientException;
 import java.io.Serializable;
 
 public class Data implements Serializable{
@@ -37,7 +38,7 @@ public class Data implements Serializable{
      * Method that adds a client to the client list.
      * @param a 
      */
-    public void addClient(Client c){
+    public void addClient(Client c) throws ClientException{
         clientList.addClient(c);
     }
     
