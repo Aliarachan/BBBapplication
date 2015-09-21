@@ -17,6 +17,9 @@ public class Client {
     private String bankAccount;
     private boolean offertant;
     private boolean demandant;
+    private int dayOfBirth;
+    private int monthOfBirth;
+    private int numVisits;
     
 
     /**
@@ -24,9 +27,6 @@ public class Client {
      * @param name name of the client
      * @param number telephon number
      * @param dni dni identificator
-     * @param email e-mail address
-     * @param address phisic address
-     * @param bankAccount number of the bank account
      */
     public Client(String name, int dni, int number){
         //These are the minimum required camps.
@@ -109,9 +109,9 @@ public class Client {
     
     /**
      * Setter function for the client address
-     * @param adress 
+     * @param address 
      */
-    public void setAddress(String adress){
+    public void setAddress(String address){
         this.address = address;
     }
     
@@ -161,6 +161,72 @@ public class Client {
      */
     public void setDemandant(boolean demandant){
         this.demandant = demandant;
+    }
+    
+    /**
+     * Getter function for the number of visits.
+     * @return 
+     */
+    public int getNumVisits(){
+        return numVisits;
+    }
+    
+    /**
+     * Setter function for the number of visits.
+     * @param n number of visits
+     */
+    public void setNumVisits(int n){
+        this.numVisits = n;
+    }
+    
+    /**
+     * Getter function for the client's day of birtdhay.
+     * @return day of birth
+     */
+    public int getDayOfBirth(){
+        return dayOfBirth;
+    }
+    
+    /**
+     * Setter function for the day of birthday
+     * @param dayOfBirth
+     */
+    public void setDayOfBirth (int dayOfBirth){
+        this.dayOfBirth = dayOfBirth;
+    }
+    
+    /**
+     * Getter function for the month of birthday.
+     * @return month of birth
+     */
+    public int getMonthOfBirth(){
+        return monthOfBirth;
+    }
+    
+    /**
+     * Setter function for the month of birthday.
+     * @param monthOfBirth
+     */
+    public void setMonthOfBirth(int monthOfBirth){
+        this.monthOfBirth = monthOfBirth;
+    }
+    
+    /**
+     * Compare function for clients based on their name.
+     * @param c client  to be compared.
+     * @return 0 if the name of the client is equal, -1 if the name of the Client 1 is lexicographically less than the name of the Client 2; otherwise, returns 1.
+     */
+    public int compareTo(Client c){
+        return this.getName().compareToIgnoreCase(c.getName());
+    }
+    
+    /**
+     * Equals function for clients based on their DNI. Two clients are equal when their DNI is the same.
+     * @param c Client 
+     * @return boolean true if the clients are equal, false otherwise.
+     */
+    public boolean equals(Client c){
+        return (this.getDNI() == c.getDNI());
     }
     
     /**
