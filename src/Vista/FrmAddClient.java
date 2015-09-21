@@ -14,10 +14,15 @@ import Model.Client;
 public class FrmAddClient extends javax.swing.JDialog {
 
     private Client newClient; //new client that we are going to add
+    private boolean B1,B2,B3;
     
     public FrmAddClient(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        btnDone.setEnabled(false);
+        B1 = false;
+        B2 = false;
+        B3 = false;
         newClient = null; //If we canel the action, we don't want to get any rubbish client.
         //btnDone.setEnabled(false); //If we haven't fulfilled the camps, we can't accept.
     }
@@ -56,15 +61,27 @@ public class FrmAddClient extends javax.swing.JDialog {
 
         lblName.setText("Name: ");
 
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameFocusLost(evt);
             }
         });
 
         lblDNI.setText("DNI:");
 
+        txtDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDNIFocusLost(evt);
+            }
+        });
+
         lblNumber.setText("Number: ");
+
+        txtNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNumberFocusLost(evt);
+            }
+        });
 
         lblEmail.setText("E-mail:");
 
@@ -175,7 +192,6 @@ public class FrmAddClient extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtDayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,10 +210,6 @@ public class FrmAddClient extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
 
     /**
      * It creates a new Client with given information and closes the window
@@ -224,6 +236,42 @@ public class FrmAddClient extends javax.swing.JDialog {
         newClient = null; //If we close the dialog cancelling the option, the client must be null.
         this.dispose(); //We close the dialog.
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+        if(!"".equals(txtName.getText())){
+            B1=true;
+        }else{
+            B1=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtNameFocusLost
+
+    private void txtDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDNIFocusLost
+        if(!"".equals(txtDNI.getText())){
+            B2=true;
+        }else{
+            B2=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtDNIFocusLost
+
+    private void txtNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNumberFocusLost
+        if(!"".equals(txtNumber.getText())){
+            B3=true;
+        }else{
+            B3=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtNumberFocusLost
 
     /**
      * Gives the client (can be null if not created).

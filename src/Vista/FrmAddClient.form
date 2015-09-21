@@ -145,7 +145,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNameFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDNI">
@@ -154,6 +154,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDNI">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDNIFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNumber">
       <Properties>
@@ -161,6 +164,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNumber">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNumberFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEmail">
       <Properties>
