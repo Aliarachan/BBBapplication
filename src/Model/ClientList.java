@@ -22,7 +22,7 @@ public class ClientList {
     }
  
     /**
-     * Method that add a client to the current list.
+     * Method that adds a client to the current list.
      * @param c
      * @return 
      */
@@ -31,7 +31,7 @@ public class ClientList {
     }
     
     /**
-     * Method taht remove a client selected by client object.
+     * Method taht removes a client selected by client object.
      * @param c 
      */
     public void removeClient(Client c){
@@ -39,7 +39,7 @@ public class ClientList {
     }
     
     /**
-     * Method that remove a client selected by index.
+     * Method that removes a client selected by index.
      * @param n 
      */
     public void removeClient(int n){
@@ -47,7 +47,7 @@ public class ClientList {
     }
     
     /**
-     * Method that return the number of the current clients.
+     * Method that returns the number of the current clients.
      * @return 
      */
     public int clientNumber(){
@@ -83,5 +83,26 @@ public class ClientList {
      */
     public boolean checkClientOnClientList(Client c){
         return list.contains(c);
+    }
+    
+    /**
+     * Method that sorts the list by number of visits.
+     */
+    public void sortByNumberOfVisits(){
+        int i;
+        boolean flag = true;
+        Client aux;
+         while(flag){
+             flag = false;
+             for(i=0;i<list.size();i++){
+                 if(list.get(i).getNumVisits()<list.get(i+1).getNumVisits()){
+                     aux = list.get(i);
+                     list.set(i,list.get(i+1));
+                     list.set(i+1,aux);
+                     flag = true;
+                 }
+             }
+         
+         }
     }
 }

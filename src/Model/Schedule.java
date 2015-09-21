@@ -24,7 +24,7 @@ public class Schedule {
     }
     
     /**
-     * Method that add an appointment to the current list.
+     * Method that adds an appointment to the current list.
      * @param a
      * @return 
      */
@@ -33,7 +33,7 @@ public class Schedule {
     }
     
     /**
-     * Method that remove an appointment selected by appointment object.
+     * Method that removes an appointment selected by appointment object.
      * @param a 
      */
     public void removeAppointment(Appointment a){
@@ -41,7 +41,7 @@ public class Schedule {
     }
     
     /**
-     * Method that remove an appointment selected by index.
+     * Method that removes an appointment selected by index.
      * @param n 
      */
     public void removeAppointment(int n){
@@ -49,7 +49,7 @@ public class Schedule {
     }
     
     /**
-     * Method that return the number of the current appointments.
+     * Method that returns the number of the current appointments.
      * @return 
      */
     public int numberOfAppointments(){
@@ -79,7 +79,7 @@ public class Schedule {
     }
     
     /**
-     * Method that return an arraylist of appointments wich date is tomorrow.
+     * Method that returns an arraylist of appointments wich date is tomorrow.
      * @return 
      */
     public ArrayList<Appointment> getTomorrowAppointments(){
