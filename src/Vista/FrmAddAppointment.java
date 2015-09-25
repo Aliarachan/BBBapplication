@@ -7,7 +7,6 @@ package Vista;
 
 import Model.Appointment;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -178,11 +177,8 @@ public class FrmAddAppointment extends javax.swing.JDialog {
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
         Calendar date = new GregorianCalendar(Integer.parseInt(txtYear.getText()),  Integer.parseInt(txtMonth.getText()), Integer.parseInt(txtDay.getText()));
         Calendar today = Calendar.getInstance();
-        boolean done = true;
-        if(date.after(today)){
-            done = false;
-        }
-        newAppointment = new Appointment(date, Integer.parseInt(txtDNI.getText()), txtAddress.getText(), done);
+        //Appointments are done by default since we need to test the proper performance of the application.
+        newAppointment = new Appointment(date, Integer.parseInt(txtDNI.getText()), txtAddress.getText(), true);
         this.dispose();
     }//GEN-LAST:event_btnDoneActionPerformed
 
