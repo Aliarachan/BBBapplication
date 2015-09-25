@@ -46,9 +46,9 @@ public class FrmAddOffProt extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Protection code:");
+        jLabel1.setText("(*) Protection code:");
 
-        jLabel2.setText("Address: ");
+        jLabel2.setText("(*) Address: ");
 
         jLabel3.setText("Monthly price:");
 
@@ -95,7 +95,7 @@ public class FrmAddOffProt extends javax.swing.JDialog {
                     .addComponent(chkSelling)
                     .addComponent(chkRenting)
                     .addComponent(btnDone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

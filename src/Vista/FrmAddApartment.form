@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblNumber" pref="56" max="32767" attributes="0"/>
+                          <Component id="lblNumber" max="32767" attributes="0"/>
                           <Component id="lblOwnerDNI" max="32767" attributes="0"/>
                           <Component id="lblOwner" max="32767" attributes="0"/>
                       </Group>
@@ -57,7 +57,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnCancel" min="-2" pref="125" max="-2" attributes="0"/>
@@ -125,28 +125,28 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblOwner">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Owner:"/>
+        <Property name="text" type="java.lang.String" value="(*) Owner:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOwner">
     </Component>
     <Component class="javax.swing.JLabel" name="lblOwnerDNI">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DNI:"/>
+        <Property name="text" type="java.lang.String" value="(*) DNI:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOwnerDNI">
     </Component>
     <Component class="javax.swing.JLabel" name="lblNumber">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Number:"/>
+        <Property name="text" type="java.lang.String" value="(*) Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNumber">
     </Component>
     <Component class="javax.swing.JLabel" name="lblAddress">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Appartment&apos;s Address:"/>
+        <Property name="text" type="java.lang.String" value="(*) Appartment&apos;s Address:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
