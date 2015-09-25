@@ -13,6 +13,7 @@ import Model.OffProtApartment;
  */
 public class FrmAddOffProt extends javax.swing.JDialog {
     private OffProtApartment newApartment;
+    private boolean B1,B2;
     /**
      * Creates new form FrmAddOffProt
      */
@@ -20,6 +21,9 @@ public class FrmAddOffProt extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         newApartment = null; //Since we may cancel it, it can be a null apartment.
+        btnDone.setEnabled(false);
+        B1 = false;
+        B2 = false;
     }
 
     /**
@@ -48,11 +52,27 @@ public class FrmAddOffProt extends javax.swing.JDialog {
 
         jLabel1.setText("(*) Protection code:");
 
+        txtProtection.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProtectionFocusLost(evt);
+            }
+        });
+
         jLabel2.setText("(*) Address: ");
+
+        txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAddressFocusLost(evt);
+            }
+        });
 
         jLabel3.setText("Monthly price:");
 
+        txtMonthly.setText("0");
+
         jLabel4.setText("Total price:");
+
+        txtTotalPrice.setText("0");
 
         chkSelling.setText("For selling");
 
@@ -148,6 +168,32 @@ public class FrmAddOffProt extends javax.swing.JDialog {
         newApartment = null;
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtProtectionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProtectionFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtProtection.getText())){
+            B1=true;
+        }else{
+            B1=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtProtectionFocusLost
+
+    private void txtAddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtAddress.getText())){
+            B2=true;
+        }else{
+            B2=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtAddressFocusLost
 
     /**
      * Returns the offprotection apartment if it is created.

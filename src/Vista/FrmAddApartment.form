@@ -129,6 +129,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOwner">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtOwnerFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblOwnerDNI">
       <Properties>
@@ -136,6 +139,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOwnerDNI">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtOwnerDNIFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNumber">
       <Properties>
@@ -143,6 +149,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNumber">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNumberFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAddress">
       <Properties>
@@ -150,6 +159,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtAddressFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMonthly">
       <Properties>
@@ -157,6 +169,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMonthly">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotalPrice">
       <Properties>
@@ -164,6 +179,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTotalPrice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="chkSelling">
       <Properties>
@@ -197,6 +215,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtInmGain">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0.0"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
