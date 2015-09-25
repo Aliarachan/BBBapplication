@@ -148,6 +148,14 @@ public class Data implements Serializable{
         return this.clientList;
     }
     
+    public void incrementClientVisits(long DNI){
+        clientList.incrementClientVisit(DNI);
+    }
+    
+    public void incrementApartmentVisits(String address){
+        catalog.incrementApartmentVisits(address);
+    }
+    
     /**
      * Method that allows the application to save the data collected. 
      * @throws FileNotFoundException

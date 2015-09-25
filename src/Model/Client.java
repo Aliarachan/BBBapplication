@@ -12,8 +12,8 @@ public class Client implements Serializable{
     
     //Attributes are private so we can only access them through the getters/setters functions.
     private String name;
-    private int number;
-    private int dni;
+    private long number;
+    private long dni;
     private String email;
     private String address;
     private String bankAccount;
@@ -30,7 +30,7 @@ public class Client implements Serializable{
      * @param number telephon number
      * @param dni dni identificator
      */
-    public Client(String name, int dni, int number){
+    public Client(String name, long dni, long number){
         //These are the minimum required camps.
         this.name = name;
         this.number = number;
@@ -57,7 +57,7 @@ public class Client implements Serializable{
      * Getter function for the client number
      * @return int number
      */
-    public int getNumber (){
+    public long getNumber (){
         return this.number;
     }
     
@@ -65,7 +65,7 @@ public class Client implements Serializable{
      * Setter function for the client number
      * @param number 
      */
-    public void setNumber(int number){
+    public void setNumber(long number){
         this.number = number;
     }
     
@@ -73,7 +73,7 @@ public class Client implements Serializable{
      * Getter function for the client DNI
      * @return int DNI
      */
-    public int getDNI(){
+    public long getDNI(){
         return this.dni;
     }
     
@@ -182,6 +182,13 @@ public class Client implements Serializable{
     }
     
     /**
+     * Increments the number of visits done by this client.
+     */
+    public void incrementNumVisits(){
+        this.numVisits++;
+    }
+    
+    /**
      * Getter function for the client's day of birtdhay.
      * @return day of birth
      */
@@ -238,8 +245,8 @@ public class Client implements Serializable{
     @Override
     public String toString(){
         String s;
-        String strDNI = Integer.toString(this.dni);
-        String strNumber = Integer.toString(this.number);
+        String strDNI = Long.toString(this.dni);
+        String strNumber = Long.toString(this.number);
         s = this.name + " | DNI: " + strDNI + " | Telephon number: " + strNumber;
         return s;
     }

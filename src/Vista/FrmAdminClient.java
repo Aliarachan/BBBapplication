@@ -19,8 +19,8 @@ public class FrmAdminClient extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         txtName.setText(c.getName());
-        txtDNI.setText(Integer.toString(c.getDNI()));
-        txtNumber.setText(Integer.toString(c.getNumber()));
+        txtDNI.setText(Long.toString(c.getDNI()));
+        txtNumber.setText(Long.toString(c.getNumber()));
         txtEmail.setText(c.getEmail());
         txtAddress.setText(c.getAddress());
         txtAccount.setText(c.getAccount());
