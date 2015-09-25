@@ -69,6 +69,23 @@ public class Catalog implements Serializable{
     }
     
     /**
+     * Searches through the list given an address key and increments its number of visits done.
+     * @param address 
+     */
+    public void incrementApartmentVisits(String address){
+        int i = 0;
+        boolean found = false;
+        while (i < list.size() && !found){
+            if(list.get(i).getAddress().equals(address)){
+                found = true;
+            } else {
+                i++;
+            }
+        }
+        list.get(i).incrementNumVisits();
+    }
+    
+    /**
      * Method to sort the list of apartments by address.
      */
     public void sortByAddress () {

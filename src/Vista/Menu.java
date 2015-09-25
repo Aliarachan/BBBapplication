@@ -367,8 +367,16 @@ public class Menu extends javax.swing.JFrame {
         if (appointment != null){
             controller.addAppointment(appointment);
             updateSchedule();
-            controller.incrementClientVisits(appointment.getDNI());
-            controller.incrementApartmentVisits(appointment.getAddress());
+            if(!controller.getClientList().isEmpty()){
+                controller.incrementClientVisits(appointment.getDNI());
+            } else {
+                JOptionPane.showMessageDialog(this, "No clients are egistered in your application, therefore your visit won't be recorded.", "Warning!", JOptionPane.ERROR_MESSAGE);
+            }
+            if(!controller.getCatalog().isEmpty()){
+                controller.incrementApartmentVisits(appointment.getAddress());
+            } else {
+                JOptionPane.showMessageDialog(this, "You have no apartments registered in your application, therefore your visit won't be recorded.", "Warning!", JOptionPane.ERROR_MESSAGE);
+            }
         }
         
     }//GEN-LAST:event_btnAddAppointmentActionPerformed

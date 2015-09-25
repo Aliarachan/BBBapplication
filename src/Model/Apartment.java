@@ -126,6 +126,13 @@ public class Apartment implements Serializable {
     }
     
     /**
+     * Increments the number of visits of this apartment.
+     */
+    public void incrementNumVisits(){
+        this.numVisits++;
+    }
+    
+    /**
      * Overwrite compareTo in order to compare two apartments by address.
      * @param apart Apartment to compare with.
      * @return int 
@@ -135,6 +142,7 @@ public class Apartment implements Serializable {
         return this.address.compareTo(apart.getAddress());
     }
     
+    
     /**
      * toString returns the address of the apartment.
      * @return String of the apartment's address.
@@ -142,5 +150,6 @@ public class Apartment implements Serializable {
     @Override
     public String toString () {
         return this.address;
+        
     }
 }

@@ -52,18 +52,25 @@ public class FrmAddAppointment extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         txtDNI = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         btnDone = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtHour = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtMinutes = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Date:");
 
+        txtDay.setText("00");
         txtDay.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtDayFocusLost(evt);
@@ -72,6 +79,7 @@ public class FrmAddAppointment extends javax.swing.JDialog {
 
         jLabel2.setText("/");
 
+        txtMonth.setText("00");
         txtMonth.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtMonthFocusLost(evt);
@@ -80,6 +88,7 @@ public class FrmAddAppointment extends javax.swing.JDialog {
 
         jLabel3.setText("/");
 
+        txtYear.setText("0000");
         txtYear.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtYearFocusLost(evt);
@@ -94,17 +103,17 @@ public class FrmAddAppointment extends javax.swing.JDialog {
 
         jLabel7.setText("Name:");
 
-        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtDNI.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNameFocusLost(evt);
+                txtDNIFocusLost(evt);
             }
         });
 
         jLabel8.setText("DNI:");
 
-        txtDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDNIFocusLost(evt);
+                txtNameFocusLost(evt);
             }
         });
 
@@ -130,6 +139,18 @@ public class FrmAddAppointment extends javax.swing.JDialog {
             }
         });
 
+        jLabel10.setText("Time:");
+
+        txtHour.setText("00");
+
+        jLabel11.setText("Hour (hh)");
+
+        jLabel12.setText(":");
+
+        txtMinutes.setText("00");
+
+        jLabel13.setText("Minutes (mm)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,43 +159,66 @@ public class FrmAddAppointment extends javax.swing.JDialog {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtAddress))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDay))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel2)
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtMonth))
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtYear)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtName)
-                                    .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))
-                        .addContainerGap(111, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))))
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel10)))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(txtHour, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(32, 32, 32)
+                                                        .addComponent(jLabel13))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(jLabel12)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(txtMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 12, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtDay))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel2)
+                                                .addGap(14, 14, 14)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtMonth))
+                                                .addGap(12, 12, 12)))
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtYear)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jLabel7)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(98, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,23 +236,36 @@ public class FrmAddAppointment extends javax.swing.JDialog {
                     .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -219,8 +276,7 @@ public class FrmAddAppointment extends javax.swing.JDialog {
      * @param evt 
      */
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-        Calendar date = new GregorianCalendar(Integer.parseInt(txtYear.getText()),  Integer.parseInt(txtMonth.getText()), Integer.parseInt(txtDay.getText()));
-        Calendar today = Calendar.getInstance();
+        Calendar date = new GregorianCalendar(Integer.parseInt(txtYear.getText()),  Integer.parseInt(txtMonth.getText()), Integer.parseInt(txtDay.getText()), Integer.parseInt(txtHour.getText()), Integer.parseInt(txtMinutes.getText()));
         //Appointments are done by default since we need to test the proper performance of the application.
         newAppointment = new Appointment(date, Integer.parseInt(txtDNI.getText()), txtAddress.getText(), true);
         this.dispose();
@@ -270,9 +326,9 @@ public class FrmAddAppointment extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtYearFocusLost
 
-    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+    private void txtDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDNIFocusLost
         //Small algorithm to block the Done button if some of the txt field are empy.
-        if(!"".equals(txtName.getText())){
+        if(!"".equals(txtDNI.getText())){
             B4=true;
         }else{
             B4=false;
@@ -281,11 +337,11 @@ public class FrmAddAppointment extends javax.swing.JDialog {
         if(B1&&B2&&B3&&B4&&B5&&B6){
             btnDone.setEnabled(true);
         }
-    }//GEN-LAST:event_txtNameFocusLost
+    }//GEN-LAST:event_txtDNIFocusLost
 
-    private void txtDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDNIFocusLost
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
         //Small algorithm to block the Done button if some of the txt field are empy.
-        if(!"".equals(txtDNI.getText())){
+        if(!"".equals(txtName.getText())){
             B5=true;
         }else{
             B5=false;
@@ -294,7 +350,7 @@ public class FrmAddAppointment extends javax.swing.JDialog {
         if(B1&&B2&&B3&&B4&&B5&&B6){
             btnDone.setEnabled(true);
         }
-    }//GEN-LAST:event_txtDNIFocusLost
+    }//GEN-LAST:event_txtNameFocusLost
 
     private void txtAddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusLost
         //Small algorithm to block the Done button if some of the txt field are empy.
@@ -316,6 +372,10 @@ public class FrmAddAppointment extends javax.swing.JDialog {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDone;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -327,6 +387,8 @@ public class FrmAddAppointment extends javax.swing.JDialog {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtDay;
+    private javax.swing.JTextField txtHour;
+    private javax.swing.JTextField txtMinutes;
     private javax.swing.JTextField txtMonth;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtYear;
