@@ -104,8 +104,7 @@ public class Appointment implements Serializable{
      * @return true if the appointments are the same, false if they are different.
      */
     public boolean equals(Appointment a){
-        return ((a.getDate().equals(this.date)) & (a.getAddress().equals(this.address)));
-        
+        return ((a.getDate().equals(this.date)) && (a.getAddress().equals(this.address)));    
     }
     
     /**

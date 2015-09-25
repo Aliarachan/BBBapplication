@@ -131,6 +131,7 @@ public class Apartment implements Serializable {
      * @return int 
      */
     public int compareTo(Apartment apart) {
+        // Compare two flats by address.
         return this.address.compareTo(apart.getAddress());
     }
     

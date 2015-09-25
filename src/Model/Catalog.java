@@ -2,7 +2,6 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Catalog class: Has all the information about the apartments available.
@@ -73,6 +72,9 @@ public class Catalog implements Serializable{
      * Method to sort the list of apartments by address.
      */
     public void sortByAddress () {
+        // The sort method access to compareTo to order the list of the flats. As 
+        // we have overwritten the compareTo method in the Apartment class to order 
+        // the flats by their address, there is no need any kind of Comparator.
         list.sort(null);  
     }
     
@@ -80,21 +82,30 @@ public class Catalog implements Serializable{
      * Method to sort the list of apartments by the number of visits done.
      */
     public void sortByNumberOfVisits(){
-        int i;
-        boolean flag = true;
-        Apartment aux;
-         while(flag){
-             flag = false;
-             for(i=0;i<list.size();i++){
-                 if(list.get(i).getNumVisits() <list.get(i+1).getNumVisits()){
-                     aux = list.get(i);
-                     list.set(i,list.get(i+1));
-                     list.set(i+1,aux);
-                     flag = true;
-                 }
-             }
-         
-         }
+        int i; 
+        boolean flag = true; //Inicializamos el boolean flag a true.
+        Apartment aux; // Creamos una variable de tipo Apartment.
+        
+        //If the size of the list is 1 or less, there is no need to order the list.
+        if (list.size() > 1){   
+            //Since the flag variable is true it will be enter in the loop.
+            while(flag){
+                flag = false;
+                // We will iterate over the flat list.
+                for(i=0; i<list.size()-1; i++){
+                    // If the number of visits of the i flat is less than the next
+                    // flat, we will change the position of the flats in the list.
+                    if(list.get(i).getNumVisits() < list.get(i+1).getNumVisits()){
+                        aux = list.get(i);
+                        list.set(i,list.get(i+1));
+                        list.set(i+1,aux);
+                        flag = true;                                 
+                    }
+
+                }
+                
+            }
+        }    
     }
     
     /**
