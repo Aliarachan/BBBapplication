@@ -129,6 +129,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDay">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDayFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -136,6 +139,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMonth">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtMonthFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -143,6 +149,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtYear">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtYearFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -165,6 +174,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNameFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
@@ -172,6 +184,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDNI">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDNIFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -179,6 +194,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtAddressFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDone">
       <Properties>

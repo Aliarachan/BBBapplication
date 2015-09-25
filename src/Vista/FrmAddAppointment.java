@@ -7,7 +7,6 @@ package Vista;
 
 import Model.Appointment;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -16,6 +15,7 @@ import java.util.GregorianCalendar;
  */
 public class FrmAddAppointment extends javax.swing.JDialog {
     private Appointment newAppointment;
+    private boolean B1,B2,B3,B4,B5,B6;
 
     /**
      * Creates new form FrmAddAppointment
@@ -23,6 +23,13 @@ public class FrmAddAppointment extends javax.swing.JDialog {
     public FrmAddAppointment(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        B1 = false;
+        B2 = false;
+        B3 = false;
+        B4 = false;
+        B5 = false;
+        B6 = false;
+        btnDone.setEnabled(false);
         newAppointment = null;
     }
 
@@ -57,9 +64,27 @@ public class FrmAddAppointment extends javax.swing.JDialog {
 
         jLabel1.setText("Date:");
 
+        txtDay.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDayFocusLost(evt);
+            }
+        });
+
         jLabel2.setText("/");
 
+        txtMonth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMonthFocusLost(evt);
+            }
+        });
+
         jLabel3.setText("/");
+
+        txtYear.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtYearFocusLost(evt);
+            }
+        });
 
         jLabel4.setText("Day (DD)");
 
@@ -69,9 +94,27 @@ public class FrmAddAppointment extends javax.swing.JDialog {
 
         jLabel7.setText("Name:");
 
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameFocusLost(evt);
+            }
+        });
+
         jLabel8.setText("DNI:");
 
+        txtDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDNIFocusLost(evt);
+            }
+        });
+
         jLabel9.setText("Apartment's address:");
+
+        txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAddressFocusLost(evt);
+            }
+        });
 
         btnDone.setText("Done");
         btnDone.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +233,84 @@ public class FrmAddAppointment extends javax.swing.JDialog {
         newAppointment = null;
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtDayFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDayFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtDay.getText())){
+            B1=true;
+        }else{
+            B1=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4&&B5&&B6){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtDayFocusLost
+
+    private void txtMonthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMonthFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtMonth.getText())){
+            B2=true;
+        }else{
+            B2=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4&&B5&&B6){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtMonthFocusLost
+
+    private void txtYearFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtYearFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtYear.getText())){
+            B3=true;
+        }else{
+            B3=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4&&B5&&B6){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtYearFocusLost
+
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtName.getText())){
+            B4=true;
+        }else{
+            B4=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4&&B5&&B6){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtNameFocusLost
+
+    private void txtDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDNIFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtDNI.getText())){
+            B5=true;
+        }else{
+            B5=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4&&B5&&B6){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtDNIFocusLost
+
+    private void txtAddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtAddress.getText())){
+            B6=true;
+        }else{
+            B6=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4&&B5&&B6){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtAddressFocusLost
 
     public Appointment getAppointment(){
         return newAppointment;

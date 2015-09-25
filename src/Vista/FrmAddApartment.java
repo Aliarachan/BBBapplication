@@ -15,12 +15,18 @@ import Model.NewApartment;
  */
 public class FrmAddApartment extends javax.swing.JDialog {
     private NewApartment newApartment;
+    private boolean B1,B2,B3,B4;
     /**
      * Creates new form FrmAddAppartment
      */
     public FrmAddApartment(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        B1 = false;
+        B2 = false;
+        B3 = false;
+        B4 = false;
+        btnDone.setEnabled(false);
         newApartment = null; //This is null until some information is providen.
     }
 
@@ -56,15 +62,43 @@ public class FrmAddApartment extends javax.swing.JDialog {
 
         lblOwner.setText("(*) Owner:");
 
+        txtOwner.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtOwnerFocusLost(evt);
+            }
+        });
+
         lblOwnerDNI.setText("(*) DNI:");
+
+        txtOwnerDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtOwnerDNIFocusLost(evt);
+            }
+        });
 
         lblNumber.setText("(*) Number:");
 
+        txtNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNumberFocusLost(evt);
+            }
+        });
+
         lblAddress.setText("(*) Appartment's Address:");
+
+        txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAddressFocusLost(evt);
+            }
+        });
 
         lblMonthly.setText("Monthly payment:");
 
+        txtMonthly.setText("0");
+
         lblTotalPrice.setText("Total price:");
+
+        txtTotalPrice.setText("0");
 
         chkSelling.setText("For selling");
 
@@ -85,6 +119,8 @@ public class FrmAddApartment extends javax.swing.JDialog {
         });
 
         jLabel1.setText("Inmobiliary gain:");
+
+        txtInmGain.setText("0.0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +229,58 @@ public class FrmAddApartment extends javax.swing.JDialog {
         newApartment = null;
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtOwnerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtOwnerFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtOwner.getText())){
+            B1=true;
+        }else{
+            B1=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtOwnerFocusLost
+
+    private void txtOwnerDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtOwnerDNIFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtOwnerDNI.getText())){
+            B2=true;
+        }else{
+            B2=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtOwnerDNIFocusLost
+
+    private void txtNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNumberFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtNumber.getText())){
+            B3=true;
+        }else{
+            B3=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtNumberFocusLost
+
+    private void txtAddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusLost
+        //Small algorithm to block the Done button if some of the txt field are empy.
+        if(!"".equals(txtAddress.getText())){
+            B4=true;
+        }else{
+            B4=false;
+        }
+        btnDone.setEnabled(false);
+        if(B1&&B2&&B3&&B4){
+            btnDone.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtAddressFocusLost
 
     /**
      * Returns the apartment if created, null if cancelled.
