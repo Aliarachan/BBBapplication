@@ -59,7 +59,7 @@ public class FrmAddClient extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblName.setText("Name: ");
+        lblName.setText("(*) Name: ");
 
         txtName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -67,7 +67,7 @@ public class FrmAddClient extends javax.swing.JDialog {
             }
         });
 
-        lblDNI.setText("DNI:");
+        lblDNI.setText("(*) DNI:");
 
         txtDNI.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -75,7 +75,7 @@ public class FrmAddClient extends javax.swing.JDialog {
             }
         });
 
-        lblNumber.setText("Number: ");
+        lblNumber.setText("(*) Number: ");
 
         txtNumber.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {

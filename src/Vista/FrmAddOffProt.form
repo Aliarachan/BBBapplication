@@ -45,7 +45,7 @@
                   <Component id="chkRenting" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDone" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,14 +99,14 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Protection code:"/>
+        <Property name="text" type="java.lang.String" value="(*) Protection code:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtProtection">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Address: "/>
+        <Property name="text" type="java.lang.String" value="(*) Address: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
