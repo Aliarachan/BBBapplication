@@ -24,6 +24,7 @@ public class FrmSeeClients extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.list = list;
+        setList();
     }
 
     /**
