@@ -367,7 +367,10 @@ public class Menu extends javax.swing.JFrame {
         if (appointment != null){
             controller.addAppointment(appointment);
             updateSchedule();
+            controller.incrementClientVisits(appointment.getDNI());
+            controller.incrementApartmentVisits(appointment.getAddress());
         }
+        
     }//GEN-LAST:event_btnAddAppointmentActionPerformed
 
     /**
@@ -555,6 +558,7 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }
+
     
     /**
      * @param args the command line arguments

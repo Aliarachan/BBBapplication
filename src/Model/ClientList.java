@@ -100,6 +100,23 @@ public class ClientList implements Serializable{
     }
     
     /**
+     * Searches through the list, founds a client given his DNI key and increments his number of visits.
+     * @param DNI 
+     */
+    public void incrementClientVisit(long DNI){
+        int i = 0;
+        boolean found = false;
+        while (i < list.size() && !found){
+            if(list.get(i).getDNI() == DNI){
+                found = true;
+            } else {
+                i++;
+            }
+        }
+        list.get(i).incrementNumVisits();
+    }
+    
+    /**
      * Method that sorts the list by number of visits.
      */
     public void sortByNumberOfVisits(){

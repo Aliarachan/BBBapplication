@@ -143,6 +143,22 @@ public class CtrlApplication{
     }
     
     /**
+     * Calls data to increment the owner of the DNI visit
+     * @param DNI 
+     */
+    public void incrementClientVisits(long DNI){
+        data.incrementClientVisits(DNI);
+    }
+    
+    /**
+     * Calls data to increment the address visit
+     * @param address 
+     */
+    public void incrementApartmentVisits(String address){
+        data.incrementApartmentVisits(address);
+    }
+    
+    /**
      * Method that allows the application to load the data collected. 
      * @throws FileNotFoundException
      * @throws IOException

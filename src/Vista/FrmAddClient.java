@@ -216,7 +216,7 @@ public class FrmAddClient extends javax.swing.JDialog {
      * @param evt 
      */
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-        newClient = new Client (txtName.getText(), Integer.parseInt(txtDNI.getText()), Integer.parseInt(txtNumber.getText()));
+        newClient = new Client (txtName.getText(), Long.parseLong(txtDNI.getText()), Long.parseLong(txtNumber.getText()));
         newClient.setEmail(txtEmail.getText());
         newClient.setAddress(txtAddress.getText());
         newClient.setAccount(txtAccount.getText());
