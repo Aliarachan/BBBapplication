@@ -247,7 +247,7 @@ public class Client implements Serializable{
         String s;
         String strDNI = Long.toString(this.dni);
         String strNumber = Long.toString(this.number);
-        s = this.name + " | DNI: " + strDNI + " | Telephon number: " + strNumber;
+        s = this.name + " | DNI: " + strDNI + " | Telephon number: " + strNumber + " | Birthday : " + Integer.toString(this.dayOfBirth) + " / " + Integer.toString(this.monthOfBirth);
         return s;
     }
 }
