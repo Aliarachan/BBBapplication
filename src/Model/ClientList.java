@@ -117,23 +117,29 @@ public class ClientList implements Serializable{
     }
     
     /**
-     * Method that sorts the list by number of visits.
+     * Method that sorts the list by number of visits. Bubblesort method.
      */
     public void sortByNumberOfVisits(){
-        int i;
-        boolean flag = true;
-        Client aux;
-         while(flag){
-             flag = false;
-             for(i=0;i<list.size();i++){
-                 if(list.get(i).getNumVisits()<list.get(i+1).getNumVisits()){
-                     aux = list.get(i);
-                     list.set(i,list.get(i+1));
-                     list.set(i+1,aux);
-                     flag = true;
-                 }
-             }
-         
-         }
+        int i; 
+        boolean flag = true; 
+        Client aux;  
+        //One element means that no sorting is needed
+        if (list.size() > 1){   
+            while(flag){
+                flag = false;
+                for(i=0; i<list.size()-1; i++){
+                    // If the number of visits of the i flat is less than the next
+                    // flat, we will change the position of the flats in the list.
+                    if(list.get(i).getNumVisits() < list.get(i+1).getNumVisits()){
+                        aux = list.get(i);
+                        list.set(i,list.get(i+1));
+                        list.set(i+1,aux);
+                        flag = true;                                 
+                    }
+
+                }
+                
+            }
+        }
     }
 }
