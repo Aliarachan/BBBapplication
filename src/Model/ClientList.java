@@ -30,13 +30,10 @@ public class ClientList implements Serializable{
      * @throws Exceptions.ClientException 
      */
     public boolean addClient(Client c) throws ClientException{
-        int i;
-        for(i=0;i<list.size();i++){
-            if(c.equals(list.get(i))){
-                throw new ClientException("This client is repeated.");
-            }
+        if(!this.checkClientOnClientList(c)){
+            return list.add(c);
         }
-        return list.add(c);
+        throw new ClientException("This client is repeated.");
     }
     
     /**
@@ -99,7 +96,13 @@ public class ClientList implements Serializable{
      * @return 
      */
     public boolean checkClientOnClientList(Client c){
-        return list.contains(c);
+        int i;
+        for(i=0;i<list.size();i++){
+            if(c.equals(list.get(i))){
+                return true;
+            }
+        }
+        return false;
     }
     
     /**
