@@ -30,8 +30,11 @@ public class ClientList implements Serializable{
      * @throws Exceptions.ClientException 
      */
     public boolean addClient(Client c) throws ClientException{
-        if(list.contains(c)){
-            throw new ClientException("This client is repeated.");
+        int i;
+        for(i=0;i<list.size();i++){
+            if(c.equals(list.get(i))){
+                throw new ClientException("This client is repeated.");
+            }
         }
         return list.add(c);
     }
