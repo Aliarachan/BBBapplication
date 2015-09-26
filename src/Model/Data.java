@@ -1,5 +1,6 @@
 package Model;
 
+import Exceptions.ApartmentException;
 import Exceptions.ClientException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +30,7 @@ public class Data implements Serializable{
      * Method that adds an apartment to the catalog.
      * @param a 
      */
-    public void addApartment(Apartment a){
+    public void addApartment(Apartment a) throws ApartmentException{
         catalog.addApartment(a);
     }
     

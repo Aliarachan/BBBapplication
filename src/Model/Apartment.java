@@ -142,6 +142,15 @@ public class Apartment implements Serializable {
         return this.address.compareTo(apart.getAddress());
     }
     
+    /**
+     * Equals function based on address. Two address are equal when their address
+     * are equal.
+     * @param a
+     * @return true if the apartments are equal, false if they are not.
+     */
+    public boolean equals(Apartment a){
+        return(this.getAddress().equals(a.getAddress()));
+    }
     
     /**
      * toString returns the address of the apartment.

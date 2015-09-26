@@ -1,5 +1,6 @@
 package Model;
 
+import Exceptions.ApartmentException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -53,11 +54,16 @@ public class Catalog implements Serializable{
     /**
      * Method to add the apartment passed as a parameter if this is not in the list.
      * @param apartment 
+     * @throws Exceptions.ApartmentException 
      */
-    public void addApartment(Apartment apartment){
-        if (!(this.list.contains(apartment))){
-            this.list.add(apartment);
+    public void addApartment(Apartment apartment) throws ApartmentException{
+        int i;
+        for(i=0;i<list.size();i++){
+            if(apartment.equals(list.get(i))){
+                throw new ApartmentException();
+            }
         }
+        list.add(apartment);
     }
     
     /**

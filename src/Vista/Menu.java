@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.CtrlApplication;
+import Exceptions.ApartmentException;
 import Exceptions.ClientException;
 import Model.Apartment;
 import Model.Appointment;
@@ -267,7 +268,7 @@ public class Menu extends javax.swing.JFrame {
                 controller.addClient(client);
                 updateClientList();
             } catch (ClientException ex) {
-                JOptionPane.showMessageDialog(this, "This Client is repeated", "Error!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "This Client is repeated. It won't be regitered again.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnAddClientActionPerformed
@@ -309,7 +310,9 @@ public class Menu extends javax.swing.JFrame {
                 //If the option has been cancelled, then we may have a null new apartment.
                 //Otherwise, we are willing to put this new apartment in the apartment's Catalog.
                 if(apartment != null){
-                    controller.addApartment(apartment);
+                    try {
+                        controller.addApartment(apartment);
+                    
                     updateCatalog();
                     Client auxClient = apartment.getClient();
                     
@@ -335,6 +338,9 @@ public class Menu extends javax.swing.JFrame {
                              }
                         }
                     }
+                    } catch (ApartmentException ex) {
+                        JOptionPane.showMessageDialog(this, "This new apartment is repeated. It won't be added again.", "Warning!", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
                          
             //OTHERWISE, if the user asks to create an OFFPROTECTION apartment, we proceed here.
@@ -347,8 +353,13 @@ public class Menu extends javax.swing.JFrame {
                 
                 OffProtApartment offApartment = dialog2.getOffProtApartment();
                 if (offApartment != null){
-                    controller.addApartment(offApartment);
-                    updateCatalog();
+                    try {
+                        controller.addApartment(offApartment);
+                        updateCatalog();
+                    } catch (ApartmentException ex) {
+                        JOptionPane.showMessageDialog(this, "This offprotection apartment is repeated. It won't be added again.", "Warning!", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                 }
             }
     

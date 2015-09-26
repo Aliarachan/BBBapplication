@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Exceptions.ApartmentException;
 import Exceptions.ClientException;
 import Model.Apartment;
 import Model.Appointment;
@@ -38,7 +39,7 @@ public class CtrlApplication{
      * Inter method that calls data to add a certain apartment.
      * @param a apartment to add
      */
-    public void addApartment(Apartment a){
+    public void addApartment(Apartment a) throws ApartmentException{
         data.addApartment(a);
     }
     
