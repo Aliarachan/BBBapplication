@@ -38,6 +38,11 @@ public class NewApartment extends Apartment implements Serializable{
         return this.profit;
     }
     
+    /**
+     * ToStrng method of the NewAparmtent class. 
+     * @return String information.
+     */
+    @Override
     public String toString(){
         String s = "New Apartment. Owner Name: " + client.getName() + " | Owner DNI: " + Long.toString(client.getDNI()) + " | Address: " + super.getAddress();
         return s;

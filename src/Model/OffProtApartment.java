@@ -29,6 +29,11 @@ public class OffProtApartment extends Apartment implements Serializable{
         return this.idNumber;
     }
     
+    /**
+     * ToString method of the OffProtection Apartment class.
+     * @return String information
+     */
+    @Override
     public String toString(){
         String s = "Offprotection Apartment. Offprotection code: " + Long.toString(idNumber)+ " | Address: " + super.getAddress();
         return s;
