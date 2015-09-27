@@ -141,7 +141,8 @@ public class FrmAdminOffProt extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-        newApartment = new OffProtApartment(txtAddress.getText(), Long.parseLong(txtProtection.getText()));
+        newApartment.setIdNumber(Long.parseLong(txtProtection.getText()));
+        newApartment.setAddress(txtAddress.getText());
         newApartment.setMonthly(Integer.parseInt(txtMonthly.getText()));
         newApartment.setTotalPrice(Integer.parseInt(txtTotalPrice.getText()));
         newApartment.setSelling(chkSelling.isSelected());
