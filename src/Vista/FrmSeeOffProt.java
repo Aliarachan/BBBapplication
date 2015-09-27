@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Model.OffProtApartment;
 
 /**
- *
+ * This Class creates a frame where we can see the information of a given offprotection apartment.
  * @author Cantor
  */
 public class FrmSeeOffProt extends javax.swing.JDialog {
@@ -20,7 +15,7 @@ public class FrmSeeOffProt extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setData(a);
-        newApartment = a; //Since we may cancel it, it can be a null apartment.
+        newApartment = a; 
     }
 
     /**
@@ -127,18 +122,13 @@ public class FrmSeeOffProt extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        newApartment = null;
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
-     * Returns the offprotection apartment if it is created.
-     * @return offprotection apartment or null
+     * Sets all the data of the offprotection aparment and blocks all the components so the user can't modify anything.
+     * @param a 
      */
-    public OffProtApartment getOffProtApartment(){
-        return this.newApartment;
-    }
-    
     public void setData(OffProtApartment a){
         txtAddress.setText(a.getAddress());
         txtMonthly.setText(Integer.toString(a.getMonthly()));

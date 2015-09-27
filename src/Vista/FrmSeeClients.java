@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Model.Client;
@@ -12,7 +7,7 @@ import java.util.Iterator;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * This class creates a frame where we can see the clients sorted by their number of visits.
  * @author Cantor
  */
 public class FrmSeeClients extends javax.swing.JDialog {
@@ -62,6 +57,10 @@ public class FrmSeeClients extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    /**
+     * This method sets the model of our list and prints out all of our clients, sorted by the number of their visits.
+     */
     private void setList(){
         DefaultListModel model = new DefaultListModel();
         model.clear();

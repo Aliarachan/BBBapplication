@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Schedule class: has a list of all appointments created by the user.
+ * @author Cantor
+ */
 public class Schedule implements Serializable{
     
     private ArrayList<Appointment> list;

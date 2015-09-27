@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Model.Client;
 
 /**
- *
+ * This class creates a frame where we can see all the information of a given client.
  * @author Cantor
  */
 public class FrmSeeClient extends javax.swing.JDialog {
@@ -181,14 +176,11 @@ public class FrmSeeClient extends javax.swing.JDialog {
         this.dispose(); //We close the dialog.
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    /**
-     * Gives the client (can be null if not created).
-     * @return object Client if created, null if cancelled.
-     */
-    public Client getClient(){
-        return this.newClient;
-    }
     
+    /**
+     * Sets all the text to show the client's information and blocks all the components so the user can't modify anything.
+     * @param c 
+     */
     private void setData(Client c){
         txtName.setText(c.getName());
         txtName.setEnabled(false);

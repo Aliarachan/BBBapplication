@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista;
 
-import Model.Client;
 import Model.NewApartment;
 
 /**
- *
+ * This class creates a frame where we can see all the information about a given new apartment.
  * @author Cantor
  */
 public class FrmSeeApartment extends javax.swing.JDialog {
@@ -173,19 +168,13 @@ public class FrmSeeApartment extends javax.swing.JDialog {
      * @param evt 
      */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        //Apartment is null and we close the window
-        newApartment = null;
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
-     * Returns the apartment if created, null if cancelled.
-     * @return object Apartment or null.
+     * Sets all the information to be shown and blocks all components.
+     * @param a 
      */
-    public NewApartment getNewApartment(){
-        return this.newApartment;
-    }
-    
     private void setData(NewApartment a){
         txtAddress.setText(a.getAddress());
         txtInmGain.setText(Float.toString(a.getProfit()));

@@ -11,6 +11,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+/**
+ * Data class: has three lists (catalog with apartments, schedule with apointments, clientList with clients).
+ * Contains the basic information about our application.
+ * @author Cantor
+ */
 public class Data implements Serializable{
     
     private Catalog catalog;

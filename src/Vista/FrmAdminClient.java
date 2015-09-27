@@ -1,26 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Model.Client;
 
 /**
- *
+ * This class creates a frame where we can modify a given client information.
  * @author Cantor
  */
 public class FrmAdminClient extends javax.swing.JDialog {
 
-    private Client newClient; //new client that we are going to add
+    private Client newClient; 
     
     public FrmAdminClient(java.awt.Frame parent, boolean modal,Client c) {
         super(parent, modal);
         initComponents();
         setData(c);
-        newClient = c; //If we canel the action, we don't want to get any rubbish client.
-        //btnDone.setEnabled(false); //If we haven't fulfilled the camps, we can't accept.
+        newClient = c;
     }
 
     /**
@@ -225,6 +219,10 @@ public class FrmAdminClient extends javax.swing.JDialog {
         return this.newClient;
     }
     
+    /**
+     * Sets all the previous information of a given client.
+     * @param c client
+     */
     private void setData(Client c){
         txtName.setText(c.getName());
         txtDNI.setText(Long.toString(c.getDNI()));

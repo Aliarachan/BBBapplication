@@ -4,6 +4,10 @@ import Exceptions.ClientException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Client list class: has a list containing all the clients registered by the user.
+ * @author Cantor
+ */
 public class ClientList implements Serializable{
     private ArrayList<Client> list;
     
