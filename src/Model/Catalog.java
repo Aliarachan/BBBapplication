@@ -28,7 +28,8 @@ public class Catalog implements Serializable{
     }
     
     /**
-     * Method to remove the apartment associated to the index passed as a parameter.
+     * Method to remove the apartment associated to the index passed as a 
+     * parameter.
      * @param index 
      */
     public void removeApartment(int index){
@@ -52,7 +53,8 @@ public class Catalog implements Serializable{
     }
     
     /**
-     * Method to add the apartment passed as a parameter if this is not in the list.
+     * Method to add the apartment passed as a parameter if this is not in the 
+     * list.
      * @param apartment 
      * @throws Exceptions.ApartmentException 
      */
@@ -75,7 +77,8 @@ public class Catalog implements Serializable{
     }
     
     /**
-     * Searches through the list given an address key and increments its number of visits done.
+     * Searches through the list given an address key and increments its number 
+     * of visits done.
      * @param address 
      */
     public void incrementApartmentVisits(String address){
@@ -106,8 +109,8 @@ public class Catalog implements Serializable{
      */
     public void sortByNumberOfVisits(){
         int i; 
-        boolean flag = true; //Inicializamos el boolean flag a true.
-        Apartment aux; // Creamos una variable de tipo Apartment.
+        boolean flag = true; 
+        Apartment aux; 
         
         //If the size of the list is 1 or less, there is no need to order the list.
         if (list.size() > 1){   
