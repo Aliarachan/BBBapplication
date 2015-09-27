@@ -14,18 +14,12 @@ import Model.Client;
 import Model.ClientList;
 import Model.Data;
 import Model.Schedule;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 /**
- *
- * @author aferrama10.alumnes
+ * CtrlApplication class: has our controller, manages which data can be shown in vista.
+ * @author Cantor
  */
 public class CtrlApplication{
     private Data data;
@@ -38,6 +32,7 @@ public class CtrlApplication{
     /**
      * Inter method that calls data to add a certain apartment.
      * @param a apartment to add
+     * @throws Exceptions.ApartmentException
      */
     public void addApartment(Apartment a) throws ApartmentException{
         data.addApartment(a);
@@ -88,6 +83,7 @@ public class CtrlApplication{
     /**
      * Inter method that calls data to add a certain client.
      * @param c object client to add.
+     * @throws Exceptions.ClientException
      */
     public void addClient(Client c) throws ClientException{
         data.addClient(c);

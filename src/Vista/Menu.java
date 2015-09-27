@@ -13,17 +13,14 @@ import Model.Appointment;
 import Model.Client;
 import Model.NewApartment;
 import Model.OffProtApartment;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * This is our main class. It starts the application and allows the user to navigate through its features.
  * @author Cantor
  */
 public class Menu extends javax.swing.JFrame {
@@ -474,6 +471,10 @@ public class Menu extends javax.swing.JFrame {
         askForSaving();
     }//GEN-LAST:event_formWindowClosing
 
+    /**
+     * This method shows the most visited apartments. Id est, a list where the apartments are sorted by the number of visits recieved.
+     * @param evt 
+     */
     private void btnMostVisitedApartmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostVisitedApartmentsActionPerformed
         FrmSeeApartments dialog = new FrmSeeApartments(this, true, controller.getCatalog());
         dialog.setTitle("Apartments sorted by number of visits");
@@ -482,6 +483,10 @@ public class Menu extends javax.swing.JFrame {
   
     }//GEN-LAST:event_btnMostVisitedApartmentsActionPerformed
 
+    /**
+     * This method allows the user to change a given client information.
+     * @param evt 
+     */
     private void btnChangeClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeClientActionPerformed
         Client c = (Client) lstClients.getSelectedValue();
         FrmAdminClient dialog = new FrmAdminClient(this,true, c);
@@ -491,7 +496,11 @@ public class Menu extends javax.swing.JFrame {
         updateClientList();
         
     }//GEN-LAST:event_btnChangeClientActionPerformed
-
+    
+    /**
+     * This method shows the most visitors clients. Id est, a list where the clients are sorted by the number of visits done.
+     * @param evt 
+     */
     private void btnMostVisitorClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostVisitorClientsActionPerformed
         FrmSeeClients dialog = new FrmSeeClients(this, true, controller.getClientList());
         dialog.setTitle("Clients sorted by number of visits");
@@ -499,6 +508,10 @@ public class Menu extends javax.swing.JFrame {
         dialog.setVisible(true);
     }//GEN-LAST:event_btnMostVisitorClientsActionPerformed
 
+    /**
+     * This method allows us to show a given client information when it is clicked twice (double click).
+     * @param evt 
+     */
     private void lstClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstClientsMouseClicked
         if(evt.getClickCount() == 2){
             Client c = (Client) lstClients.getSelectedValue();
@@ -508,8 +521,14 @@ public class Menu extends javax.swing.JFrame {
             dialog.setVisible(true);
         }
     }//GEN-LAST:event_lstClientsMouseClicked
-
+    
+    /**
+     * Allows the user to change a given apartment information.
+     * @param evt 
+     */
     private void btnChangeApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeApartmentActionPerformed
+        //Checking if our apartment is a new one or an offprotection one.
+        //This way we can show the proper pop up information needed.
         if(lstCatalog.getSelectedValue() instanceof NewApartment){
             NewApartment a = (NewApartment) lstCatalog.getSelectedValue();
             FrmAdminApartment dialog = new FrmAdminApartment(this,true, a);
@@ -527,6 +546,11 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnChangeApartmentActionPerformed
 
+    /**
+     * This method allows us to open a new window when an element has been clicked twice (double click).
+     * This way, we can show a given apartment information properly.
+     * @param evt 
+     */
     private void lstCatalogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstCatalogMouseClicked
         if(evt.getClickCount() == 2){
             if(lstCatalog.getSelectedValue() instanceof NewApartment){
@@ -588,6 +612,9 @@ public class Menu extends javax.swing.JFrame {
         lstSchedule.setModel(model);
     }
     
+    /**
+     * This function sets to enabled some chosen components.
+     */
     private void setComponents(){
         btnRemoveClient.setEnabled(false);
         btnChangeClient.setEnabled(false);

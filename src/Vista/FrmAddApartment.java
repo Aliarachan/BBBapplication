@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
-import Model.Apartment;
+
 import Model.Client;
 import Model.NewApartment;
 
 /**
- *
+ * This class creates a frame where we can add a new apartment given some information
  * @author Cantor
  */
 public class FrmAddApartment extends javax.swing.JDialog {

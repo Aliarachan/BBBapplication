@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Model.Appointment;
@@ -10,7 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- *
+ * This class creates a frame where we can add a new apointment giving some information.
  * @author Cantor
  */
 public class FrmAddAppointment extends javax.swing.JDialog {
@@ -365,6 +360,10 @@ public class FrmAddAppointment extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtAddressFocusLost
 
+    /**
+     * Getter function for the appointment just created.
+     * @return an appointment if created; null otherwise.
+     */
     public Appointment getAppointment(){
         return newAppointment;
     }

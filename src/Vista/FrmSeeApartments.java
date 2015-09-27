@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Model.Apartment;
@@ -12,7 +7,7 @@ import java.util.Iterator;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * This class creates a frame where we can see all the apartments sorted by their number of visits recieved.
  * @author Cantor
  */
 public class FrmSeeApartments extends javax.swing.JDialog {
@@ -63,6 +58,9 @@ public class FrmSeeApartments extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Sets our list to show the apartments properly sorted.
+     */
     private void setList(){
         DefaultListModel model = new DefaultListModel();
         model.clear();

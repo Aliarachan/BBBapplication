@@ -2,11 +2,9 @@ package Model;
 
 import java.io.Serializable;
 
-
-
 /**
  * Client class, has all the information needed to identify a BBB client.
- * @author aferrama10.alumnes
+ * @author Cantor
  */
 public class Client implements Serializable{
     
