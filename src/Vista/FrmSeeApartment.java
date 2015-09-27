@@ -12,7 +12,7 @@ import Model.NewApartment;
  *
  * @author Cantor
  */
-public class FrmAdminApartment extends javax.swing.JDialog {
+public class FrmSeeApartment extends javax.swing.JDialog {
     private NewApartment newApartment;
     /**
      * Creates new form FrmAddAppartment
@@ -20,7 +20,7 @@ public class FrmAdminApartment extends javax.swing.JDialog {
      * @param modal
      * @param a
      */
-    public FrmAdminApartment(java.awt.Frame parent, boolean modal, NewApartment a) {
+    public FrmSeeApartment(java.awt.Frame parent, boolean modal, NewApartment a) {
         super(parent, modal);
         initComponents();
         setData(a);
@@ -50,7 +50,6 @@ public class FrmAdminApartment extends javax.swing.JDialog {
         txtTotalPrice = new javax.swing.JTextField();
         chkSelling = new javax.swing.JCheckBox();
         chkRenting = new javax.swing.JCheckBox();
-        btnDone = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtInmGain = new javax.swing.JTextField();
@@ -77,14 +76,7 @@ public class FrmAdminApartment extends javax.swing.JDialog {
 
         chkRenting.setText("For renting");
 
-        btnDone.setText("Done");
-        btnDone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoneActionPerformed(evt);
-            }
-        });
-
-        btnCancel.setText("Cancel");
+        btnCancel.setText("OK");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -133,9 +125,8 @@ public class FrmAdminApartment extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chkRenting)
-                            .addComponent(chkSelling)
-                            .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(chkSelling))
+                        .addGap(56, 56, 56))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,12 +145,11 @@ public class FrmAdminApartment extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumber)
                     .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddress)
-                    .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                    .addComponent(lblAddress))
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMonthly)
                     .addComponent(txtMonthly, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -178,22 +168,6 @@ public class FrmAdminApartment extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    /**
-     * It creates a new apartment with a given information and closes the window
-     * @param evt 
-     */
-    private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-        //Assuming the basic information is given
-        Client tmpClient = new Client(txtOwner.getText(), Integer.parseInt(txtOwnerDNI.getText()), Integer.parseInt(txtNumber.getText()));
-        newApartment.setAddress(txtAddress.getText());
-        newApartment.setClient(tmpClient);
-        newApartment.setMonthly(Integer.parseInt(txtMonthly.getText()));
-        newApartment.setTotalPrice(Long.parseLong(txtTotalPrice.getText()));
-        newApartment.setSelling(chkSelling.isSelected());
-        newApartment.setRenting(chkRenting.isSelected());
-        this.dispose();
-    }//GEN-LAST:event_btnDoneActionPerformed
-
     /**
      * It cancels the new apartment creation and closes the window
      * @param evt 
@@ -220,10 +194,20 @@ public class FrmAdminApartment extends javax.swing.JDialog {
         txtOwner.setText(a.getClient().getName());
         txtOwnerDNI.setText(Long.toString(a.getClient().getDNI()));
         txtTotalPrice.setText(Long.toString(a.getTotalPrice()));
+        chkRenting.setSelected(a.getRenting());
+        chkSelling.setSelected(a.getSelling());
+        txtAddress.setEnabled(false);
+        txtInmGain.setEnabled(false);
+        txtMonthly.setEnabled(false);
+        txtNumber.setEnabled(false);
+        txtOwner.setEnabled(false);
+        txtOwnerDNI.setEnabled(false);
+        txtTotalPrice.setEnabled(false);
+        chkRenting.setEnabled(false);
+        chkSelling.setEnabled(false);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDone;
     private javax.swing.JCheckBox chkRenting;
     private javax.swing.JCheckBox chkSelling;
     private javax.swing.JLabel jLabel1;

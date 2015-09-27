@@ -29,7 +29,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnChangeAppointment" max="32767" attributes="0"/>
                   <Component id="btnRemoveAppointment" max="32767" attributes="0"/>
                   <Component id="btnAddAppointment" max="32767" attributes="0"/>
                   <Component id="btnAddClient" max="32767" attributes="0"/>
@@ -96,8 +95,6 @@
                               <Component id="btnAddAppointment" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="btnRemoveAppointment" min="-2" pref="39" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="btnChangeAppointment" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane4" alignment="0" min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
@@ -208,6 +205,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lstCatalogMouseClicked"/>
             <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lstCatalogValueChanged"/>
           </Events>
         </Component>
@@ -231,11 +229,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveAppointmentActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnChangeAppointment">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Change Appointment"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSaveChanges">
       <Properties>

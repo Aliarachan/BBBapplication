@@ -15,6 +15,14 @@ public class NewApartment extends Apartment implements Serializable{
     }
     
     /**
+     * setter of client
+     * @param client
+     */
+    public void setClient(Client client){
+        this.client = client;
+    }
+    
+    /**
      * getter of client
      * @return Client
      */

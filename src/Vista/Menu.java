@@ -62,7 +62,6 @@ public class Menu extends javax.swing.JFrame {
         lstCatalog = new javax.swing.JList();
         btnAddAppointment = new javax.swing.JButton();
         btnRemoveAppointment = new javax.swing.JButton();
-        btnChangeAppointment = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         lstSchedule = new javax.swing.JList();
@@ -100,6 +99,11 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        lstClients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lstClientsMouseClicked(evt);
+            }
+        });
         lstClients.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstClientsValueChanged(evt);
@@ -122,7 +126,17 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnChangeApartment.setText("Change Apartment");
+        btnChangeApartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangeApartmentActionPerformed(evt);
+            }
+        });
 
+        lstCatalog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lstCatalogMouseClicked(evt);
+            }
+        });
         lstCatalog.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstCatalogValueChanged(evt);
@@ -144,8 +158,6 @@ public class Menu extends javax.swing.JFrame {
                 btnRemoveAppointmentActionPerformed(evt);
             }
         });
-
-        btnChangeAppointment.setText("Change Appointment");
 
         btnSaveChanges.setText("Save changes");
         btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +194,6 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnChangeAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoveAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -236,9 +247,7 @@ public class Menu extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAddAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
-                                .addComponent(btnRemoveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(btnChangeAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnRemoveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
@@ -429,7 +438,6 @@ public class Menu extends javax.swing.JFrame {
      */
     private void lstScheduleValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstScheduleValueChanged
         btnRemoveAppointment.setEnabled(!lstSchedule.isSelectionEmpty());
-        btnChangeAppointment.setEnabled(!lstSchedule.isSelectionEmpty());
     }//GEN-LAST:event_lstScheduleValueChanged
 
     /**
@@ -491,6 +499,52 @@ public class Menu extends javax.swing.JFrame {
         dialog.setVisible(true);
     }//GEN-LAST:event_btnMostVisitorClientsActionPerformed
 
+    private void lstClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstClientsMouseClicked
+        if(evt.getClickCount() == 2){
+            Client c = (Client) lstClients.getSelectedValue();
+            FrmSeeClient dialog = new FrmSeeClient(this,true, c);
+            dialog.setTitle("Change any data you need");
+            dialog.pack();
+            dialog.setVisible(true);
+        }
+    }//GEN-LAST:event_lstClientsMouseClicked
+
+    private void btnChangeApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeApartmentActionPerformed
+        if(lstCatalog.getSelectedValue() instanceof NewApartment){
+            NewApartment a = (NewApartment) lstCatalog.getSelectedValue();
+            FrmAdminApartment dialog = new FrmAdminApartment(this,true, a);
+            dialog.setTitle("Change any data you need");
+            dialog.pack();
+            dialog.setVisible(true);
+            updateCatalog();
+        }else{
+            OffProtApartment a = (OffProtApartment) lstCatalog.getSelectedValue();
+            FrmAdminOffProt dialog = new FrmAdminOffProt(this,true, a);
+            dialog.setTitle("Change any data you need");
+            dialog.pack();
+            dialog.setVisible(true);
+            updateCatalog();
+        }
+    }//GEN-LAST:event_btnChangeApartmentActionPerformed
+
+    private void lstCatalogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstCatalogMouseClicked
+        if(evt.getClickCount() == 2){
+            if(lstCatalog.getSelectedValue() instanceof NewApartment){
+                NewApartment a = (NewApartment) lstCatalog.getSelectedValue();
+                FrmSeeApartment dialog = new FrmSeeApartment(this,true, a);
+                dialog.setTitle("Change any data you need");
+                dialog.pack();
+                dialog.setVisible(true);
+            }else{
+                OffProtApartment a = (OffProtApartment) lstCatalog.getSelectedValue();
+                FrmSeeOffProt dialog = new FrmSeeOffProt(this,true, a);
+                dialog.setTitle("Change any data you need");
+                dialog.pack();
+                dialog.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_lstCatalogMouseClicked
+
     /**
      * Updates the Client List in the menu.
      */
@@ -540,7 +594,6 @@ public class Menu extends javax.swing.JFrame {
         btnRemoveApartment.setEnabled(false);
         btnChangeApartment.setEnabled(false);
         btnRemoveAppointment.setEnabled(false);
-        btnChangeAppointment.setEnabled(false);
     }
     
     /**
@@ -619,7 +672,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAddAppointment;
     private javax.swing.JButton btnAddClient;
     private javax.swing.JButton btnChangeApartment;
-    private javax.swing.JButton btnChangeAppointment;
     private javax.swing.JButton btnChangeClient;
     private javax.swing.JButton btnMostVisitedApartments;
     private javax.swing.JButton btnMostVisitorClients;
