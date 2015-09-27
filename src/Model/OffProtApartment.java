@@ -29,5 +29,8 @@ public class OffProtApartment extends Apartment implements Serializable{
         return this.idNumber;
     }
     
-    
+    public String toString(){
+        String s = "Offprotection Apartment. Offprotection code: " + Long.toString(idNumber)+ " | Address: " + super.getAddress();
+        return s;
+    }
 }
