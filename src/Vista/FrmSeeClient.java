@@ -11,16 +11,14 @@ import Model.Client;
  *
  * @author Cantor
  */
-public class FrmAdminClient extends javax.swing.JDialog {
+public class FrmSeeClient extends javax.swing.JDialog {
 
     private Client newClient; //new client that we are going to add
     
-    public FrmAdminClient(java.awt.Frame parent, boolean modal,Client c) {
+    public FrmSeeClient(java.awt.Frame parent, boolean modal,Client c) {
         super(parent, modal);
         initComponents();
         setData(c);
-        newClient = c; //If we canel the action, we don't want to get any rubbish client.
-        //btnDone.setEnabled(false); //If we haven't fulfilled the camps, we can't accept.
     }
 
     /**
@@ -46,7 +44,6 @@ public class FrmAdminClient extends javax.swing.JDialog {
         txtAccount = new javax.swing.JTextField();
         chkOffertant = new javax.swing.JCheckBox();
         chkDemandant = new javax.swing.JCheckBox();
-        btnDone = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtDayOfBirth = new javax.swing.JTextField();
@@ -73,14 +70,7 @@ public class FrmAdminClient extends javax.swing.JDialog {
 
         chkDemandant.setText("Looks for an apparment");
 
-        btnDone.setText("Done");
-        btnDone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoneActionPerformed(evt);
-            }
-        });
-
-        btnCancel.setText("Cancel");
+        btnCancel.setText("OK");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -131,8 +121,7 @@ public class FrmAdminClient extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chkOffertant)
-                    .addComponent(chkDemandant)
-                    .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkDemandant))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,26 +139,21 @@ public class FrmAdminClient extends javax.swing.JDialog {
                         .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(chkDemandant)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtDayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,30 +174,10 @@ public class FrmAdminClient extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * It creates a new Client with given information and closes the window
-     * @param evt 
-     */
-    private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-        newClient.setName(txtName.getText());
-        newClient.setDNI(Integer.parseInt(txtDNI.getText()));
-        newClient.setNumber(Integer.parseInt(txtNumber.getText()));
-        newClient.setEmail(txtEmail.getText());
-        newClient.setAddress(txtAddress.getText());
-        newClient.setAccount(txtAccount.getText());
-        newClient.setOffertant(chkOffertant.isSelected());
-        newClient.setDemandant(chkDemandant.isSelected());
-        newClient.setDayOfBirth(Integer.parseInt(txtDayOfBirth.getText()));
-        newClient.setMonthOfBirth(Integer.parseInt(txtMonthOfBirth.getText()));
-        
-        this.dispose();
-    }//GEN-LAST:event_btnDoneActionPerformed
-
-    /**
      * It cancels the new client creation and closes the window
      * @param evt 
      */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        newClient = null; //If we close the dialog cancelling the option, the client must be null.
         this.dispose(); //We close the dialog.
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -227,17 +191,29 @@ public class FrmAdminClient extends javax.swing.JDialog {
     
     private void setData(Client c){
         txtName.setText(c.getName());
+        txtName.setEnabled(false);
         txtDNI.setText(Long.toString(c.getDNI()));
+        txtDNI.setEnabled(false);
         txtNumber.setText(Long.toString(c.getNumber()));
+        txtNumber.setEnabled(false);
         txtEmail.setText(c.getEmail());
+        txtEmail.setEnabled(false);
         txtAddress.setText(c.getAddress());
+        txtAddress.setEnabled(false);
         txtAccount.setText(c.getAccount());
+        txtAccount.setEnabled(false);
         txtDayOfBirth.setText(Integer.toString(c.getDayOfBirth()));
+        txtDayOfBirth.setEnabled(false);
         txtMonthOfBirth.setText(Integer.toString(c.getMonthOfBirth()));
+        txtMonthOfBirth.setEnabled(false);
+        chkDemandant.setSelected(c.getDemandant());
+        chkDemandant.setEnabled(false);
+        chkOffertant.setSelected(c.getOffertant());
+        chkOffertant.setEnabled(false);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDone;
     private javax.swing.JCheckBox chkDemandant;
     private javax.swing.JCheckBox chkOffertant;
     private javax.swing.JLabel jLabel1;
